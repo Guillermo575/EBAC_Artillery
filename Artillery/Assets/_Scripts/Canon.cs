@@ -8,6 +8,7 @@ public class Canon : MonoBehaviour
     private GameObject puntaCanon;
     private float rotacion;
     private GameManager gameManager;
+    public static bool Bloqueado;
     #endregion
 
     #region Start & Update
@@ -25,16 +26,18 @@ public class Canon : MonoBehaviour
         }
         if (rotacion > 90) rotacion = 90;
         if (rotacion < 0) rotacion = 0;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !Bloqueado)
         {
             if (gameManager.DisparosPorJuego > 0)
             {
                 GameObject temp = Instantiate(BalaPrefab, puntaCanon.transform.position, transform.rotation);
                 Rigidbody tempRB = temp.GetComponent<Rigidbody>();
+                SeguirCamara.objetivo = temp;
                 Vector3 direccionDisparo = transform.rotation.eulerAngles;
                 direccionDisparo.y = 90 - direccionDisparo.x;
                 tempRB.velocity = direccionDisparo.normalized * gameManager.VelocidadBala;
                 gameManager.DisparosPorJuego--;
+                Bloqueado = true;
             }
         }
     }

@@ -5,6 +5,7 @@ public class Bala : MonoBehaviour
 {
     #region Variables
     private GameManager gameManager;
+    private bool Destruyendose;
     #endregion
 
     #region Start & Update
@@ -14,8 +15,9 @@ public class Bala : MonoBehaviour
     }
     void Update()
     {
-        if (this.gameObject.transform.position.y < gameManager.NivelSuelo)
+        if (!Destruyendose && this.gameObject.transform.position.y < gameManager.NivelSuelo)
         {
+            Destruyendose = true;
             StartCoroutine(CoroutineBallDeath());
         }
     }
@@ -24,10 +26,10 @@ public class Bala : MonoBehaviour
     #region Collision
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Solido")
-        {
-            StartCoroutine(CoroutineBallDeath());
-        }
+        //if (collision.gameObject.tag == "Suelo" || collision.gameObject.tag == "Obstaculo" || collision.gameObject.tag == "Enemigo")
+        //{
+        //    StartCoroutine(CoroutineBallDeath());
+        //}
     }
     #endregion
 
@@ -35,6 +37,7 @@ public class Bala : MonoBehaviour
     IEnumerator CoroutineBallDeath()
     {
         yield return new WaitForSecondsRealtime(2f);
+        Canon.Bloqueado = false;
         Destroy(this.gameObject);
     }
     #endregion

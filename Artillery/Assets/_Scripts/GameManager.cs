@@ -13,11 +13,13 @@ public class GameManager : MonoBehaviour
     #region Variables
     public int VelocidadBala { get => _VelocidadBala; set => _VelocidadBala = value; }
     public int DisparosPorJuego { get => _DisparosPorJuego; set => _DisparosPorJuego = value; }
+    public int DisparosPorJuegoTotal { get => _DisparosPorJuegoTotal; set => _DisparosPorJuegoTotal = value; }
     public float VelocidadRotacion { get => _VelocidadRotacion; set => _VelocidadRotacion = value; }
     public float NivelSuelo { get => _NivelSuelo; set => _NivelSuelo = value; }
 
     [SerializeField] private int _VelocidadBala = 30;
     [SerializeField] private int _DisparosPorJuego = 10;
+    [SerializeField] private int _DisparosPorJuegoTotal = 10;
     [SerializeField] private float _VelocidadRotacion = 1;
     private float _NivelSuelo = -1000;
     #endregion
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
             SingletonGameManager = this;
             var objSuelo = GameObject.Find("Suelo");
             NivelSuelo = objSuelo.gameObject.transform.position.y;
+            DisparosPorJuego = DisparosPorJuegoTotal;
         }
         else
         {
