@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 public class SeguirCamara : MonoBehaviour
 {
+    #region Variables
     public static GameObject objetivo;
-
     [Header("Configurar en editor")]
     public float suavizado = 0.05f;
     public Vector2 limiteXY = Vector2.zero;
-
     [Header("Configuracion Dinamica")]
     public float camZ;
+    #endregion
+
+    #region Awake & Fixed Update
     private void Awake()
     {
         camZ = this.transform.position.z;
@@ -44,4 +46,5 @@ public class SeguirCamara : MonoBehaviour
         transform.position = destino;
         Camera.main.orthographicSize = destino.y + 20;
     }
+    #endregion
 }

@@ -515,6 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BalaPrefab: {fileID: 456343279591412553, guid: 6effd337b82b4164c9344fd98a45ddc7, type: 3}
+  particulaDisparo: {fileID: 4274657246117199005, guid: 83bda3ddc55c47b4bb209a881cd49e3b, type: 3}
 --- !u!1 &7072370870041047910
 GameObject:
   m_ObjectHideFlags: 0

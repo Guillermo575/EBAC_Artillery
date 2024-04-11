@@ -5,6 +5,7 @@ public class Canon : MonoBehaviour
 {
     #region Variables
     [SerializeField] private GameObject BalaPrefab;
+    public GameObject particulaDisparo;
     private GameObject puntaCanon;
     private float rotacion;
     private GameManager gameManager;
@@ -35,6 +36,8 @@ public class Canon : MonoBehaviour
                 SeguirCamara.objetivo = temp;
                 Vector3 direccionDisparo = transform.rotation.eulerAngles;
                 direccionDisparo.y = 90 - direccionDisparo.x;
+                Vector3 direccionParticulas = new Vector3(-90 + direccionDisparo.x, 90, 0);
+                GameObject particulas = Instantiate(particulaDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas), transform);
                 tempRB.velocity = direccionDisparo.normalized * gameManager.VelocidadBala;
                 gameManager.DisparosPorJuego--;
                 Bloqueado = true;
