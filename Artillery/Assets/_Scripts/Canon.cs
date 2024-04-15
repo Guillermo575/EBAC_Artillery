@@ -6,6 +6,10 @@ public class Canon : MonoBehaviour
     #region Variables
     [SerializeField] private GameObject BalaPrefab;
     public GameObject particulaDisparo;
+    public AudioClip clipDisparo;
+    private GameObject SonidoDisparo;
+    private AudioSource SourceDisparo;
+
     private GameObject puntaCanon;
     private float rotacion;
     private GameManager gameManager;
@@ -17,6 +21,8 @@ public class Canon : MonoBehaviour
     {
         gameManager = GameManager.SingletonGameManager;
         puntaCanon = transform.Find("PuntaCanon").gameObject;
+        SonidoDisparo = GameObject.Find("Sonido_Disparo");
+        SourceDisparo = SonidoDisparo.GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -40,6 +46,8 @@ public class Canon : MonoBehaviour
                 GameObject particulas = Instantiate(particulaDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas), transform);
                 tempRB.velocity = direccionDisparo.normalized * gameManager.VelocidadBala;
                 gameManager.DisparosPorJuego--;
+                //SourceDisparo.PlayOneShot(clipDisparo);
+                SourceDisparo.Play();
                 Bloqueado = true;
             }
         }
