@@ -1063,6 +1063,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7509292621207016778, guid: 5586369707a8afb49a14d547306e381b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509292621207016778, guid: 5586369707a8afb49a14d547306e381b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509292621207016778, guid: 5586369707a8afb49a14d547306e381b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1252,6 +1264,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1109403825917515023, guid: 9fedf55ea8330d74a88f60fa0aae556c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d4106c0ab6ba0b48ad45c9128846667, type: 3}
     - target: {fileID: 6189409364700128214, guid: 9fedf55ea8330d74a88f60fa0aae556c, type: 3}
       propertyPath: m_Name
       value: Sonido_Explosion

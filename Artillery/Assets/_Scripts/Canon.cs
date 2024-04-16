@@ -5,6 +5,7 @@ public class Canon : MonoBehaviour
 {
     #region Variables
     [SerializeField] private GameObject BalaPrefab;
+    public LineRenderer lineaRastro;
     public GameObject particulaDisparo;
     public AudioClip clipDisparo;
     private GameObject SonidoDisparo;
@@ -12,6 +13,7 @@ public class Canon : MonoBehaviour
 
     private GameObject puntaCanon;
     private float rotacion;
+    private float rotacionAnterior = -999;
     private GameManager gameManager;
     public static bool Bloqueado;
     #endregion
@@ -50,6 +52,32 @@ public class Canon : MonoBehaviour
                 SourceDisparo.Play();
                 Bloqueado = true;
             }
+        }
+        if (rotacion != rotacionAnterior)
+        {
+            Vector3 direccionDisparo = transform.rotation.eulerAngles;
+            direccionDisparo.y = 90 - direccionDisparo.x;
+            rotacionAnterior = rotacion;
+            if (!Bloqueado)
+                UpdateTrajectory(puntaCanon.transform.position, (direccionDisparo.normalized * gameManager.VelocidadBala), Physics.gravity);
+        }
+        if (Bloqueado)
+        {
+            lineaRastro.positionCount = 0;
+        }
+    }
+    void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
+    {
+        int numSteps = 100; // for example
+        float timeDelta = 1.0f / initialVelocity.magnitude; // for example
+        lineaRastro.positionCount = (numSteps);
+        Vector3 position = initialPosition;
+        Vector3 velocity = initialVelocity;
+        for (int i = 0; i < numSteps; ++i)
+        {
+            lineaRastro.SetPosition(i, position);
+            position += velocity * timeDelta + 0.5f * gravity * timeDelta * timeDelta;
+            velocity += gravity * timeDelta;
         }
     }
     #endregion
