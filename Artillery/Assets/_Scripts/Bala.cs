@@ -10,6 +10,7 @@ public class Bala : MonoBehaviour
     private AudioSource SourceExplosion;
     private GameManager gameManager;
     private bool Destruyendose;
+    private bool Colision;
     #endregion
 
     #region Start & Update
@@ -31,10 +32,10 @@ public class Bala : MonoBehaviour
     #region Collision
     private void OnCollisionEnter(Collision collision)
     {
-        if ((collision.gameObject.tag == "Suelo" || collision.gameObject.tag == "Obstaculo" || collision.gameObject.tag == "Enemigo") && !Destruyendose)
+        if ((collision.gameObject.tag == "Suelo" || collision.gameObject.tag == "Obstaculo" || collision.gameObject.tag == "Enemigo") && !Colision)
         {
             //StartCoroutine(CoroutineBallDeath());
-            Destruyendose = true;
+            Colision = true;
             GameObject particulas = Instantiate(particulaExplosion, this.gameObject.transform);
             SourceExplosion.Play();
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 public class Canon : MonoBehaviour
 {
     #region Variables
@@ -37,21 +38,7 @@ public class Canon : MonoBehaviour
         if (rotacion < 0) rotacion = 0;
         if (Input.GetKeyDown(KeyCode.Space) && !Bloqueado)
         {
-            if (gameManager.DisparosPorJuego > 0)
-            {
-                GameObject temp = Instantiate(BalaPrefab, puntaCanon.transform.position, transform.rotation);
-                Rigidbody tempRB = temp.GetComponent<Rigidbody>();
-                SeguirCamara.objetivo = temp;
-                Vector3 direccionDisparo = transform.rotation.eulerAngles;
-                direccionDisparo.y = 90 - direccionDisparo.x;
-                Vector3 direccionParticulas = new Vector3(-90 + direccionDisparo.x, 90, 0);
-                GameObject particulas = Instantiate(particulaDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas), transform);
-                tempRB.velocity = direccionDisparo.normalized * gameManager.VelocidadBala;
-                gameManager.DisparosPorJuego--;
-                //SourceDisparo.PlayOneShot(clipDisparo);
-                SourceDisparo.Play();
-                Bloqueado = true;
-            }
+            ShotBullet();
         }
         if (rotacion != rotacionAnterior)
         {
@@ -64,6 +51,24 @@ public class Canon : MonoBehaviour
         if (Bloqueado)
         {
             lineaRastro.positionCount = 0;
+        }
+    }
+    public void ShotBullet()
+    {
+        if (gameManager.DisparosPorJuego > 0)
+        {
+            GameObject temp = Instantiate(BalaPrefab, puntaCanon.transform.position, transform.rotation);
+            Rigidbody tempRB = temp.GetComponent<Rigidbody>();
+            SeguirCamara.objetivo = temp;
+            Vector3 direccionDisparo = transform.rotation.eulerAngles;
+            direccionDisparo.y = 90 - direccionDisparo.x;
+            Vector3 direccionParticulas = new Vector3(-90 + direccionDisparo.x, 90, 0);
+            GameObject particulas = Instantiate(particulaDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas), transform);
+            tempRB.velocity = direccionDisparo.normalized * gameManager.VelocidadBala;
+            gameManager.DisparosPorJuego--;
+            //SourceDisparo.PlayOneShot(clipDisparo);
+            SourceDisparo.Play();
+            Bloqueado = true;
         }
     }
     void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
