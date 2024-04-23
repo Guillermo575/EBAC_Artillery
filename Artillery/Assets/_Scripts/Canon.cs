@@ -19,7 +19,28 @@ public class Canon : MonoBehaviour
     public static bool Bloqueado;
     #endregion
 
+    #region Controles
+    public CanonControls canonControls;
+    private InputAction apuntar;
+    private InputAction modificarFuerza;
+    private InputAction disparar;
+    #endregion
+
     #region Start & Update
+    private void Awake()
+    {
+        canonControls = new CanonControls();
+    }
+    private void OnEnable()
+    {
+        apuntar = canonControls.Canon.Apuntar;
+        modificarFuerza = canonControls.Canon.ModificarFuerza;
+        disparar = canonControls.Canon.Disparar;
+        apuntar.Enable();
+        modificarFuerza.Enable();
+        disparar.Enable();
+        disparar.performed += ShotBullet;
+    }
     void Start()
     {
         gameManager = GameManager.SingletonGameManager;
@@ -29,17 +50,21 @@ public class Canon : MonoBehaviour
     }
     void Update()
     {
-        rotacion += Input.GetAxis("Horizontal") * gameManager.VelocidadRotacion;
+        ChangeAngle();
+        if (Bloqueado)
+        {
+            lineaRastro.positionCount = 0;
+        }
+    }
+    public void ChangeAngle()
+    {
+        rotacion += apuntar.ReadValue<float>() * gameManager.VelocidadRotacion;
         if (rotacion <= 90 && rotacion >= 0)
         {
             transform.eulerAngles = new Vector3(rotacion, 90, 0.0f);
         }
         if (rotacion > 90) rotacion = 90;
         if (rotacion < 0) rotacion = 0;
-        if (Input.GetKeyDown(KeyCode.Space) && !Bloqueado)
-        {
-            ShotBullet();
-        }
         if (rotacion != rotacionAnterior)
         {
             Vector3 direccionDisparo = transform.rotation.eulerAngles;
@@ -48,12 +73,8 @@ public class Canon : MonoBehaviour
             if (!Bloqueado)
                 UpdateTrajectory(puntaCanon.transform.position, (direccionDisparo.normalized * gameManager.VelocidadBala), Physics.gravity);
         }
-        if (Bloqueado)
-        {
-            lineaRastro.positionCount = 0;
-        }
     }
-    public void ShotBullet()
+    public void ShotBullet(InputAction.CallbackContext context)
     {
         if (gameManager.DisparosPorJuego > 0)
         {
