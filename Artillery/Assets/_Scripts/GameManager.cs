@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _DisparosPorJuegoTotal = 10;
     [SerializeField] private float _VelocidadRotacion = 1;
     private float _NivelSuelo = -1000;
+    private bool JuegoTerminado = false;
+    public GameObject CanvasGanar;
+    public GameObject CanvasPerder;
     #endregion
 
     #region Awake
@@ -38,6 +41,28 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Ya existe una instancia de esta clase");
         }
+    }
+    private void Update()
+    {
+        if (DisparosPorJuego <= 0 && !Canon.Bloqueado && !JuegoTerminado)
+        {
+            PerderJuego();
+        }
+    }
+    #endregion
+
+    #region Ganar/Perder
+    public void GanarJuego()
+    {
+        Canon.Bloqueado = true;
+        JuegoTerminado = true;
+        CanvasGanar.SetActive(true);
+    }
+    public void PerderJuego()
+    {
+        Canon.Bloqueado = true;
+        JuegoTerminado = true;
+        CanvasPerder.SetActive(true);
     }
     #endregion
 }

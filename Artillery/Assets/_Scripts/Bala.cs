@@ -5,11 +5,7 @@ public class Bala : MonoBehaviour
 {
     #region Variables
     public GameObject particulaExplosion;
-    public AudioClip clipExplosion;
-    private GameObject SonidoExplosion;
-    private AudioSource SourceExplosion;
     private GameManager gameManager;
-    private bool Destruyendose;
     private bool Colision;
     #endregion
 
@@ -17,14 +13,12 @@ public class Bala : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.SingletonGameManager;
-        SonidoExplosion = GameObject.Find("Sonido_Explosion");
-        SourceExplosion = SonidoExplosion.GetComponent<AudioSource>();
     }
     void Update()
     {
-        if (!Destruyendose && this.gameObject.transform.position.y < gameManager.NivelSuelo)
+        if (transform.position.y < gameManager.NivelSuelo)
         {
-            StartCoroutine(CoroutineBallDeath());
+            Explotar();
         }
     }
     #endregion
@@ -32,22 +26,25 @@ public class Bala : MonoBehaviour
     #region Collision
     private void OnCollisionEnter(Collision collision)
     {
-        if ((collision.gameObject.tag == "Suelo" || collision.gameObject.tag == "Obstaculo" || collision.gameObject.tag == "Enemigo") && !Colision)
+        if (collision.gameObject.tag == "Suelo")
         {
-            //StartCoroutine(CoroutineBallDeath());
             Colision = true;
-            GameObject particulas = Instantiate(particulaExplosion, this.gameObject.transform);
-            SourceExplosion.Play();
+            Invoke("Explotar", 3);
+        }
+        if ((collision.gameObject.tag == "Obstaculo" || collision.gameObject.tag == "Objetivo") && !Colision)
+        {
+            Colision = true;
+            Explotar();
         }
     }
     #endregion
 
     #region Ball Destroy
-    IEnumerator CoroutineBallDeath()
+    public void Explotar()
     {
-        Destruyendose = true;
-        yield return new WaitForSecondsRealtime(2f);
+        GameObject particulas = Instantiate(particulaExplosion, transform.position, Quaternion.identity) as GameObject;
         Canon.Bloqueado = false;
+        SeguirCamara.objetivo = null;
         Destroy(this.gameObject);
     }
     #endregion

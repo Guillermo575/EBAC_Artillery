@@ -76,20 +76,23 @@ public class Canon : MonoBehaviour
     }
     public void ShotBullet(InputAction.CallbackContext context)
     {
-        if (gameManager.DisparosPorJuego > 0)
+        if (!Bloqueado)
         {
-            GameObject temp = Instantiate(BalaPrefab, puntaCanon.transform.position, transform.rotation);
-            Rigidbody tempRB = temp.GetComponent<Rigidbody>();
-            SeguirCamara.objetivo = temp;
-            Vector3 direccionDisparo = transform.rotation.eulerAngles;
-            direccionDisparo.y = 90 - direccionDisparo.x;
-            Vector3 direccionParticulas = new Vector3(-90 + direccionDisparo.x, 90, 0);
-            GameObject particulas = Instantiate(particulaDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas), transform);
-            tempRB.velocity = direccionDisparo.normalized * gameManager.VelocidadBala;
-            gameManager.DisparosPorJuego--;
-            //SourceDisparo.PlayOneShot(clipDisparo);
-            SourceDisparo.Play();
-            Bloqueado = true;
+            if (gameManager.DisparosPorJuego > 0)
+            {
+                GameObject temp = Instantiate(BalaPrefab, puntaCanon.transform.position, transform.rotation);
+                Rigidbody tempRB = temp.GetComponent<Rigidbody>();
+                SeguirCamara.objetivo = temp;
+                Vector3 direccionDisparo = transform.rotation.eulerAngles;
+                direccionDisparo.y = 90 - direccionDisparo.x;
+                Vector3 direccionParticulas = new Vector3(-90 + direccionDisparo.x, 90, 0);
+                GameObject particulas = Instantiate(particulaDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas), transform);
+                tempRB.velocity = direccionDisparo.normalized * gameManager.VelocidadBala;
+                gameManager.DisparosPorJuego--;
+                //SourceDisparo.PlayOneShot(clipDisparo);
+                SourceDisparo.Play();
+                Bloqueado = true;
+            }
         }
     }
     void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
