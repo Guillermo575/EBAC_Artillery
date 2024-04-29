@@ -9,8 +9,9 @@ public class Objetivo : MonoBehaviour
     {
         if (other.tag == "Explosion")
         {
-            GameWon.Invoke();
+            GameManager.GetManager().RemoverObjetivo(this.gameObject);
             Destroy(this.gameObject);
+            GameWon.Invoke();
         }
     }
 }

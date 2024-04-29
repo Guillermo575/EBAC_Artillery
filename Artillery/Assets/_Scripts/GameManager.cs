@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 public class GameManager : MonoBehaviour
 {
@@ -7,6 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager SingletonGameManager;
     private GameManager()
     {
+    }
+    public static GameManager GetManager()
+    {
+        return SingletonGameManager;
     }
     #endregion
 
@@ -23,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _VelocidadRotacion = 1;
     private float _NivelSuelo = -1000;
     private bool JuegoTerminado = false;
+    private List<GameObject> lstObjetivos;
     public GameObject CanvasGanar;
     public GameObject CanvasPerder;
     #endregion
@@ -42,21 +48,40 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Ya existe una instancia de esta clase");
         }
     }
+    private void Start()
+    {
+        lstObjetivos = GameObject.FindGameObjectsWithTag("Objetivo").ToList();
+    }
     private void Update()
     {
         if (DisparosPorJuego <= 0 && !Canon.Bloqueado && !JuegoTerminado)
         {
-            PerderJuego();
+            StartCoroutine(ComprobarPerderJuego());
         }
     }
     #endregion
 
     #region Ganar/Perder
+    public void RemoverObjetivo(GameObject obj)
+    {
+        lstObjetivos.Remove(this.gameObject);
+    }
     public void GanarJuego()
     {
-        Canon.Bloqueado = true;
-        JuegoTerminado = true;
-        CanvasGanar.SetActive(true);
+        if (lstObjetivos.Count == 0)
+        {
+            Canon.Bloqueado = true;
+            JuegoTerminado = true;
+            CanvasGanar.SetActive(true);
+        }
+    }
+    IEnumerator ComprobarPerderJuego()
+    {
+        yield return new WaitForSeconds(2);
+        if (lstObjetivos.Count > 0)
+        {
+            PerderJuego();
+        }
     }
     public void PerderJuego()
     {

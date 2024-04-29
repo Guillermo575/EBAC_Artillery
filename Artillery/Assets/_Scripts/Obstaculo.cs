@@ -5,7 +5,7 @@ public class Obstaculo : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Explosion")
+        if (other.tag == "Explosion" || other.tag == "Bala")
         {
             Destroy(this.gameObject);
         }
