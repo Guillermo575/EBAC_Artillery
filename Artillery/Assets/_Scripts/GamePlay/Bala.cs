@@ -12,7 +12,7 @@ public class Bala : MonoBehaviour
     #region Start & Update
     void Start()
     {
-        gameManager = GameManager.SingletonGameManager;
+        gameManager = GameManager.GetManager();
     }
     void Update()
     {

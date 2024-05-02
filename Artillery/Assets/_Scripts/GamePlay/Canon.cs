@@ -43,7 +43,7 @@ public class Canon : MonoBehaviour
     }
     void Start()
     {
-        gameManager = GameManager.SingletonGameManager;
+        gameManager = GameManager.GetManager();
         puntaCanon = transform.Find("PuntaCanon").gameObject;
         SonidoDisparo = GameObject.Find("Sonido_Disparo");
         SourceDisparo = SonidoDisparo.GetComponent<AudioSource>();
@@ -58,6 +58,7 @@ public class Canon : MonoBehaviour
     }
     public void ChangeAngle()
     {
+        if (gameManager.IsGamePause()) return;
         rotacion += apuntar.ReadValue<float>() * gameManager.VelocidadRotacion;
         if (rotacion <= 90 && rotacion >= 0)
         {
@@ -76,6 +77,7 @@ public class Canon : MonoBehaviour
     }
     public void ShotBullet(InputAction.CallbackContext context)
     {
+        if (gameManager.IsGamePause()) return;
         if (!Bloqueado)
         {
             if (gameManager.DisparosPorJuego > 0)
