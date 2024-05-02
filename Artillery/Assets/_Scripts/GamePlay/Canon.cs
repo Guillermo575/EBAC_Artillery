@@ -14,8 +14,6 @@ public class Canon : MonoBehaviour
 
     private GameObject puntaCanon;
     private float rotacion;
-    private float rotacionAnterior = -999;
-    private int velocidadAnterior = -999;
     private GameManager gameManager;
     public static bool Bloqueado;
     #endregion
@@ -67,22 +65,22 @@ public class Canon : MonoBehaviour
     public void ChangeAngle()
     {
         if (Bloqueado) return;
-        gameManager.VelocidadBala += (int)(modificarFuerza.ReadValue<float>() * gameManager.VelocidadRotacion);
+        var ValorFuerza = modificarFuerza.ReadValue<float>();
+        gameManager.VelocidadBala += ValorFuerza * 0.1f;
         if (gameManager.VelocidadBala > 40) gameManager.VelocidadBala = 40;
         if (gameManager.VelocidadBala < 10) gameManager.VelocidadBala = 10;
-        rotacion += apuntar.ReadValue<float>() * gameManager.VelocidadRotacion;
+        var ValorApuntar = apuntar.ReadValue<float>();
+        rotacion += ValorApuntar * gameManager.VelocidadRotacion;
         if (rotacion <= 90 && rotacion >= 0)
         {
             transform.eulerAngles = new Vector3(rotacion, 90, 0.0f);
         }
         if (rotacion > 90) rotacion = 90;
         if (rotacion < 0) rotacion = 0;
-        if (rotacion != rotacionAnterior || gameManager.VelocidadBala != velocidadAnterior)
+        if (ValorFuerza != 0 || ValorApuntar != 0)
         {
             Vector3 direccionDisparo = transform.rotation.eulerAngles;
             direccionDisparo.y = 90 - direccionDisparo.x;
-            rotacionAnterior = rotacion;
-            velocidadAnterior = gameManager.VelocidadBala;
             UpdateTrajectory(puntaCanon.transform.position, (direccionDisparo.normalized * gameManager.VelocidadBala), Physics.gravity);
         }
     }
