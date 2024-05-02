@@ -26,13 +26,17 @@ public class Bala : MonoBehaviour
     #region Collision
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Suelo")
+        if (collision.gameObject.tag == "Suelo" && !Colision)
         {
             Colision = true;
             Invoke("Explotar", 3);
         }
-        if ((collision.gameObject.tag == "Obstaculo" || collision.gameObject.tag == "Objetivo") && !Colision)
+        if (collision.gameObject.tag == "Obstaculo" || collision.gameObject.tag == "Objetivo")
         {
+            //if(collision.gameObject.tag == "Obstaculo")
+            //{
+            //    Destroy(collision.gameObject);
+            //}
             Colision = true;
             Explotar();
         }

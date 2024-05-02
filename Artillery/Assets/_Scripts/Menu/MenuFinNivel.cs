@@ -17,12 +17,18 @@ public class MenuFinNivel : MonoBehaviour
     #region Awake
     private void Start()
     {
-        gameManager = GameManager.GetManager();
         menuManager = MenuManager.GetManager();
-        menuFinNivel = menuManager.menuFinNivel;
-        menuFinJuego = menuManager.menuFinJuego;
-        gameManager.OnGameLevelCleared += delegate { menuManager.ShowMenu(menuFinNivel); };
-        gameManager.OnGameOver += delegate { menuManager.ShowMenu(menuFinJuego); };
+        if (menuManager != null)
+        {
+            menuFinNivel = menuManager.menuFinNivel;
+            menuFinJuego = menuManager.menuFinJuego;
+            gameManager = GameManager.GetManager();
+            if (gameManager != null)
+            {
+                gameManager.OnGameLevelCleared += delegate { menuManager.ShowMenu(menuFinNivel); };
+                gameManager.OnGameOver += delegate { menuManager.ShowMenu(menuFinJuego); };
+            }
+        }
     }
     #endregion
 

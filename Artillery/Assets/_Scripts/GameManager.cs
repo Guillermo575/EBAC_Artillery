@@ -40,8 +40,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _VelocidadRotacion = 1;
 
     private float _NivelSuelo = -1000;
-    private List<GameObject> lstObjetivos;
-    private MenuManager menuManager;
+    private int ObjetivosTotales;
     #endregion
 
     #region Level Game Variables
@@ -111,14 +110,14 @@ public class GameManager : MonoBehaviour
         OnGameOver += delegate { Time.timeScale = 0; };
         OnGameExit += delegate { Time.timeScale = 1; };
         OnGameLevelCleared += delegate { Time.timeScale = 0; };
+        StartGame();
     }
     private void Start()
     {
         var objSuelo = GameObject.Find("Suelo");
         NivelSuelo = objSuelo.gameObject.transform.position.y;
         DisparosPorJuego = DisparosPorJuegoTotal;
-        lstObjetivos = GameObject.FindGameObjectsWithTag("Objetivo").ToList();
-        menuManager = MenuManager.GetManager();
+        ObjetivosTotales = GameObject.FindGameObjectsWithTag("Objetivo").ToList().Count;
     }
     private void Update()
     {
@@ -130,32 +129,28 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Ganar/Perder
-    public void RemoverObjetivo(GameObject obj)
+    public void RemoverObjetivo()
     {
-        lstObjetivos.Remove(this.gameObject);
+        ObjetivosTotales--;
     }
     public void GanarJuego()
     {
-        if (lstObjetivos.Count == 0)
+        if (ObjetivosTotales <= 0)
         {
-            Canon.Bloqueado = true;
-            GameEnd = true;
-            menuManager.menuFinNivel.SetActive(true);
+            LevelClearedGame();
         }
     }
     IEnumerator ComprobarPerderJuego()
     {
         yield return new WaitForSeconds(2);
-        if (lstObjetivos.Count > 0)
+        if (ObjetivosTotales > 0)
         {
             PerderJuego();
         }
     }
     public void PerderJuego()
     {
-        Canon.Bloqueado = true;
-        GameEnd = true;
-        menuManager.menuFinJuego.SetActive(true);
+        GameOver();
     }
     #endregion
 }

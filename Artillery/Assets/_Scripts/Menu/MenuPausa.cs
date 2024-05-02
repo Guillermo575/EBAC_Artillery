@@ -10,7 +10,6 @@ public class MenuPausa : MonoBehaviour
     #region Variables
     private GameManager gameManager;
     private MenuManager menuManager;
-    private GameObject botonMenuPausa;
     private GameObject menuPausa;
     private GameObject menuOpciones;
     #endregion
@@ -22,7 +21,6 @@ public class MenuPausa : MonoBehaviour
         menuManager = MenuManager.GetManager();
         gameManager.OnGamePause += MostrarMenuPausa;
         gameManager.OnGameResume += OcultarMenuPausa;
-        botonMenuPausa = menuManager.botonMenuPausa;
         menuPausa = menuManager.menuPausa;
         menuOpciones = menuManager.menuOpciones;
     }
@@ -48,12 +46,10 @@ public class MenuPausa : MonoBehaviour
     #region Mostrar/Ocultar menu
     private void MostrarMenuPausa(object sender, EventArgs e)
     {
-        botonMenuPausa.SetActive(false);
         menuManager.ShowMenu(menuPausa);
     }
     public void OcultarMenuPausa(object sender, EventArgs e)
     {
-        botonMenuPausa.SetActive(true);
         menuManager.DeleteMenuTree();
     }
     #endregion

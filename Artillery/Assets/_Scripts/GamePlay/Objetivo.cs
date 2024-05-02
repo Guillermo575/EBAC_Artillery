@@ -7,9 +7,9 @@ public class Objetivo : MonoBehaviour
     public UnityEvent GameWon;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Explosion")
+        if (other.tag == "Explosion" || other.tag == "Bala")
         {
-            GameManager.GetManager().RemoverObjetivo(this.gameObject);
+            GameManager.GetManager().RemoverObjetivo();
             Destroy(this.gameObject);
             GameWon.Invoke();
         }

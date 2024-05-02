@@ -15,6 +15,7 @@ public class Canon : MonoBehaviour
     private GameObject puntaCanon;
     private float rotacion;
     private float rotacionAnterior = -999;
+    private int velocidadAnterior = -999;
     private GameManager gameManager;
     public static bool Bloqueado;
     #endregion
@@ -47,6 +48,13 @@ public class Canon : MonoBehaviour
         puntaCanon = transform.Find("PuntaCanon").gameObject;
         SonidoDisparo = GameObject.Find("Sonido_Disparo");
         SourceDisparo = SonidoDisparo.GetComponent<AudioSource>();
+        gameManager.OnGameStart += delegate { Bloqueado = false; };
+        gameManager.OnGamePause += delegate { Bloqueado = true; };
+        gameManager.OnGameResume += delegate { Bloqueado = false; };
+        gameManager.OnGameEnd += delegate { Bloqueado = true; };
+        gameManager.OnGameOver += delegate { Bloqueado = true; };
+        gameManager.OnGameLevelCleared += delegate { Bloqueado = true; };
+        Bloqueado = false;
     }
     void Update()
     {
@@ -58,7 +66,10 @@ public class Canon : MonoBehaviour
     }
     public void ChangeAngle()
     {
-        if (gameManager.IsGamePause()) return;
+        if (Bloqueado) return;
+        gameManager.VelocidadBala += (int)(modificarFuerza.ReadValue<float>() * gameManager.VelocidadRotacion);
+        if (gameManager.VelocidadBala > 40) gameManager.VelocidadBala = 40;
+        if (gameManager.VelocidadBala < 10) gameManager.VelocidadBala = 10;
         rotacion += apuntar.ReadValue<float>() * gameManager.VelocidadRotacion;
         if (rotacion <= 90 && rotacion >= 0)
         {
@@ -66,39 +77,34 @@ public class Canon : MonoBehaviour
         }
         if (rotacion > 90) rotacion = 90;
         if (rotacion < 0) rotacion = 0;
-        if (rotacion != rotacionAnterior)
+        if (rotacion != rotacionAnterior || gameManager.VelocidadBala != velocidadAnterior)
         {
             Vector3 direccionDisparo = transform.rotation.eulerAngles;
             direccionDisparo.y = 90 - direccionDisparo.x;
             rotacionAnterior = rotacion;
-            if (!Bloqueado)
-                UpdateTrajectory(puntaCanon.transform.position, (direccionDisparo.normalized * gameManager.VelocidadBala), Physics.gravity);
+            velocidadAnterior = gameManager.VelocidadBala;
+            UpdateTrajectory(puntaCanon.transform.position, (direccionDisparo.normalized * gameManager.VelocidadBala), Physics.gravity);
         }
     }
     public void ShotBullet(InputAction.CallbackContext context)
     {
-        if (gameManager.IsGamePause()) return;
-        if (!Bloqueado)
-        {
-            if (gameManager.DisparosPorJuego > 0)
-            {
-                GameObject temp = Instantiate(BalaPrefab, puntaCanon.transform.position, transform.rotation);
-                Rigidbody tempRB = temp.GetComponent<Rigidbody>();
-                SeguirCamara.objetivo = temp;
-                Vector3 direccionDisparo = transform.rotation.eulerAngles;
-                direccionDisparo.y = 90 - direccionDisparo.x;
-                Vector3 direccionParticulas = new Vector3(-90 + direccionDisparo.x, 90, 0);
-                GameObject particulas = Instantiate(particulaDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas), transform);
-                tempRB.velocity = direccionDisparo.normalized * gameManager.VelocidadBala;
-                gameManager.DisparosPorJuego--;
-                //SourceDisparo.PlayOneShot(clipDisparo);
-                SourceDisparo.Play();
-                Bloqueado = true;
-            }
-        }
+        if (gameManager.IsGamePause() || Bloqueado || gameManager.DisparosPorJuego == 0) return;
+        GameObject temp = Instantiate(BalaPrefab, puntaCanon.transform.position, transform.rotation);
+        Rigidbody tempRB = temp.GetComponent<Rigidbody>();
+        SeguirCamara.objetivo = temp;
+        Vector3 direccionDisparo = transform.rotation.eulerAngles;
+        direccionDisparo.y = 90 - direccionDisparo.x;
+        Vector3 direccionParticulas = new Vector3(-90 + direccionDisparo.x, 90, 0);
+        GameObject particulas = Instantiate(particulaDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas), transform);
+        tempRB.velocity = direccionDisparo.normalized * gameManager.VelocidadBala;
+        gameManager.DisparosPorJuego--;
+        //SourceDisparo.PlayOneShot(clipDisparo);
+        SourceDisparo.Play();
+        Bloqueado = true;
     }
     void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
     {
+        if (Bloqueado) return;
         int numSteps = 100; // for example
         float timeDelta = 1.0f / initialVelocity.magnitude; // for example
         lineaRastro.positionCount = (numSteps);

@@ -29,7 +29,7 @@ public class MenuManager : MonoBehaviour
     #endregion
 
     #region Variables
-    [HideInInspector] public List<GameObject> lstMenuTree;
+    public List<GameObject> lstMenuTree;
     public GameObject menuFinNivel; //Ganar
     public GameObject menuFinJuego; //Perder
     public Opciones opciones;
@@ -48,9 +48,22 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         lstMenuTree = new List<GameObject>();
+        if(menuInicial.activeSelf) lstMenuTree.Add(menuInicial);
     }
     void Update()
     {
+        if (botonMenuPausa != null)
+        {
+            if (lstMenuTree.Count > 0) 
+            { 
+                botonMenuPausa.SetActive(false); 
+            }
+            else 
+            { 
+                if(!botonMenuPausa.activeSelf)
+                    botonMenuPausa.SetActive(true); 
+            }
+        }
     }
     #endregion
 
