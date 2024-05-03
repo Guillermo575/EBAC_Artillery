@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-public class MenuConfirmar : MonoBehaviour
+public class MenuConfirmar : _Menu
 {
     #region Variables
     public TMP_Text txtTitulo;
     UnityEvent EventoConfirmar;
-    private MenuManager menuManager;
     #endregion
 
     #region Awake
-    void Start()
+    protected override void Start()
     {
-        menuManager = MenuManager.GetManager();
+        base.Start();
     }
     #endregion
 

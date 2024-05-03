@@ -4,29 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-
-public class MenuFinNivel : MonoBehaviour
+public class MenuFinNivel : _Menu
 {
     #region Variables
     private GameManager gameManager;
-    private MenuManager menuManager;
-    private GameObject menuFinNivel; //Ganar
-    private GameObject menuFinJuego; //Perder
     #endregion
 
     #region Awake
-    private void Start()
+    protected override void Start()
     {
-        menuManager = MenuManager.GetManager();
+        base.Start();
         if (menuManager != null)
         {
-            menuFinNivel = menuManager.menuFinNivel;
-            menuFinJuego = menuManager.menuFinJuego;
             gameManager = GameManager.GetManager();
             if (gameManager != null)
             {
-                gameManager.OnGameLevelCleared += delegate { menuManager.ShowMenu(menuFinNivel); };
-                gameManager.OnGameOver += delegate { menuManager.ShowMenu(menuFinJuego); };
+                gameManager.OnGameLevelCleared += delegate { menuManager.ShowMenu(menuManager.menuFinNivel); };
+                gameManager.OnGameOver += delegate { menuManager.ShowMenu(menuManager.menuFinJuego); };
             }
         }
     }

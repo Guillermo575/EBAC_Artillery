@@ -2,19 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class MenuPrincipal : MonoBehaviour
+public class MenuPrincipal : _Menu
 {
-    #region Variables
-    private MenuManager menuManager;
-    private GameObject menuOpciones;
-    #endregion
-
     #region Awake
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         Time.timeScale = 1;
-        menuManager = MenuManager.GetManager();
-        menuOpciones = menuManager.menuOpciones;
     }
     #endregion
 
@@ -25,7 +19,7 @@ public class MenuPrincipal : MonoBehaviour
     }
     public void MostrarOpciones()
     {
-        menuManager.ShowMenu(menuOpciones);
+        menuManager.ShowMenu(menuManager.menuOpciones);
     }
     public void FinalizarJuego()
     {

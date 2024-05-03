@@ -30,14 +30,14 @@ public class MenuManager : MonoBehaviour
 
     #region Variables
     public List<GameObject> lstMenuTree;
+    public Opciones opciones;
+    public MenuConfirmar menuConfirmar;
+    public GameObject HUDGame;
+    public GameObject menuInicial;
+    public GameObject menuOpciones;
+    public GameObject menuPausa;
     public GameObject menuFinNivel; //Ganar
     public GameObject menuFinJuego; //Perder
-    public Opciones opciones;
-    public GameObject botonMenuPausa;
-    public GameObject menuPausa;
-    public GameObject menuOpciones;
-    public GameObject menuInicial;
-    public MenuConfirmar menuConfirmar;
     #endregion
 
     #region Start
@@ -52,16 +52,16 @@ public class MenuManager : MonoBehaviour
     }
     void Update()
     {
-        if (botonMenuPausa != null)
+        if (HUDGame != null)
         {
             if (lstMenuTree.Count > 0) 
             { 
-                botonMenuPausa.SetActive(false); 
+                HUDGame.SetActive(false); 
             }
             else 
             { 
-                if(!botonMenuPausa.activeSelf)
-                    botonMenuPausa.SetActive(true); 
+                if(!HUDGame.activeSelf)
+                    HUDGame.SetActive(true); 
             }
         }
     }

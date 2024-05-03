@@ -5,24 +5,19 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-public class MenuPausa : MonoBehaviour
+public class MenuPausa : _Menu
 {
     #region Variables
     private GameManager gameManager;
-    private MenuManager menuManager;
-    private GameObject menuPausa;
-    private GameObject menuOpciones;
     #endregion
 
     #region Awake & Update
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         gameManager = GameManager.GetManager();
-        menuManager = MenuManager.GetManager();
         gameManager.OnGamePause += MostrarMenuPausa;
         gameManager.OnGameResume += OcultarMenuPausa;
-        menuPausa = menuManager.menuPausa;
-        menuOpciones = menuManager.menuOpciones;
     }
     private void Update()
     {
@@ -46,7 +41,7 @@ public class MenuPausa : MonoBehaviour
     #region Mostrar/Ocultar menu
     private void MostrarMenuPausa(object sender, EventArgs e)
     {
-        menuManager.ShowMenu(menuPausa);
+        menuManager.ShowMenu(menuManager.menuPausa);
     }
     public void OcultarMenuPausa(object sender, EventArgs e)
     {
@@ -73,7 +68,7 @@ public class MenuPausa : MonoBehaviour
     }
     public void MostrarMenuOpciones()
     {
-        menuManager.ShowMenu(menuOpciones);
+        menuManager.ShowMenu(menuManager.menuOpciones);
     }
     public void ResumeGame()
     {

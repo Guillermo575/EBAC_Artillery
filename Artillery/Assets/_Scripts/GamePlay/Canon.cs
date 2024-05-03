@@ -53,6 +53,7 @@ public class Canon : MonoBehaviour
         gameManager.OnGameOver += delegate { Bloqueado = true; };
         gameManager.OnGameLevelCleared += delegate { Bloqueado = true; };
         Bloqueado = false;
+        lineaRastro.positionCount = 0;
     }
     void Update()
     {
@@ -77,7 +78,7 @@ public class Canon : MonoBehaviour
         }
         if (rotacion > 90) rotacion = 90;
         if (rotacion < 0) rotacion = 0;
-        if (ValorFuerza != 0 || ValorApuntar != 0)
+        if (ValorFuerza != 0 || ValorApuntar != 0 || lineaRastro.positionCount == 0)
         {
             Vector3 direccionDisparo = transform.rotation.eulerAngles;
             direccionDisparo.y = 90 - direccionDisparo.x;

@@ -52,14 +52,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lstMenuTree: []
+  opciones: {fileID: 11400000, guid: 52b8fb6a19094cc44a467ea2f3d353d0, type: 2}
+  menuConfirmar: {fileID: 6248455509893236890}
+  HUDGame: {fileID: 3394783749310327114}
+  menuInicial: {fileID: 1779454479514152807}
+  menuOpciones: {fileID: 2323933275878069989}
+  menuPausa: {fileID: 4584844470286339331}
   menuFinNivel: {fileID: 4640303097446779301}
   menuFinJuego: {fileID: 8016563173031912497}
-  opciones: {fileID: 11400000, guid: 52b8fb6a19094cc44a467ea2f3d353d0, type: 2}
-  botonMenuPausa: {fileID: 4207450196106726929}
-  menuPausa: {fileID: 4584844470286339331}
-  menuOpciones: {fileID: 2323933275878069989}
-  menuInicial: {fileID: 1779454479514152807}
-  menuConfirmar: {fileID: 6248455509893236890}
 --- !u!1001 &3644039333333342691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -370,9 +370,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a11a6f358fe188d4ba817b22b385ab26, type: 3}
---- !u!1 &4207450196106726929 stripped
+--- !u!1 &3394783749310327114 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6915126651756069989, guid: a11a6f358fe188d4ba817b22b385ab26, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5370572729416033086, guid: a11a6f358fe188d4ba817b22b385ab26, type: 3}
   m_PrefabInstance: {fileID: 7319662915933899380}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &6980730655790361247 stripped
