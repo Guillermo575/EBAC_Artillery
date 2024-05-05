@@ -10,4 +10,11 @@ public class Obstaculo : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Explosion" || collision.gameObject.tag == "Bala")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
