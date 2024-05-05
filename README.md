@@ -1,6 +1,3 @@
--  Agregar un shadergraph para los line Render
-	*  Poner un material animado
-
 - Balas:
 	* Velocidad min - max
 	* Particulas
@@ -9,10 +6,7 @@
 	
 - Obstaculos
 	* puntos de vida
-	
--Cañon
-	*	Añadir slider para medir fuerza
-	
+
 -  Gameplay
 	*  Añadir mas niveles
 	*  Paredes moviles
