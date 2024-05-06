@@ -478,8 +478,8 @@ Transform:
   m_GameObject: {fileID: 944921287}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 146.8, y: -18.5, z: 0}
-  m_LocalScale: {x: 400, y: 1, z: 15}
+  m_LocalPosition: {x: 146.8, y: -19, z: 0}
+  m_LocalScale: {x: 400, y: 2, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -599,7 +599,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -959,6 +959,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 770990756996847970, guid: 5586369707a8afb49a14d547306e381b, type: 3}
+      propertyPath: rotacion
+      value: 66
+      objectReference: {fileID: 0}
     - target: {fileID: 979562688756168641, guid: 5586369707a8afb49a14d547306e381b, type: 3}
       propertyPath: m_Name
       value: CanonJugador
@@ -1452,6 +1456,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 761278456170949045, guid: 40bb7240bb493d3499575159b9117ba5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 761278456170949045, guid: 40bb7240bb493d3499575159b9117ba5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 761278456170949045, guid: 40bb7240bb493d3499575159b9117ba5, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096519139576228546, guid: 40bb7240bb493d3499575159b9117ba5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096519139576228546, guid: 40bb7240bb493d3499575159b9117ba5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4048092129604873820, guid: 40bb7240bb493d3499575159b9117ba5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 493.5

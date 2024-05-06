@@ -13,7 +13,7 @@ public class Canon : MonoBehaviour
     private AudioSource SourceDisparo;
 
     private GameObject puntaCanon;
-    private float rotacion;
+    [SerializeField] private float rotacion;
     private GameManager gameManager;
     public static bool Bloqueado;
     #endregion
