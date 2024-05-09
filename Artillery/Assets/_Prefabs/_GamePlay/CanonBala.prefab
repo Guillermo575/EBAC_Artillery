@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 456343279591412553}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.3, y: -16.02, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61,6 +61,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -146,5 +148,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8207378125860e4794341b3225483c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 8
   particulaExplosion: {fileID: 3218365948646052445, guid: a74b70ce6980ad74ca3c5976f028e3f4, type: 3}
-  clipExplosion: {fileID: 8300000, guid: 6d4106c0ab6ba0b48ad45c9128846667, type: 3}

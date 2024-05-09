@@ -41,17 +41,31 @@ public class GameManager : MonoBehaviour
 
     private float _NivelSuelo = -1000;
     private int ObjetivosTotales;
+    private bool Bloqueado;
+    public bool IsBlock { get { return Bloqueado; } }
+    public void setBlock(bool Bloqueado) { this.Bloqueado = Bloqueado; }
+
+    public RoundState ActualRound { get; set; } = 0;
+    public enum RoundState
+    {
+        NoMoreRounds = 0,
+        Preparation = 1,
+        Action = 2,
+        Resolution = 3,
+    }
     #endregion
 
     #region Level Game Variables
     private bool GameEnd = false;
-    public bool IsGameEnd() {  return GameEnd; }
+    public bool IsGameEnd { get { return GameEnd; } }
 
     private bool GamePause = false;
-    public bool IsGamePause() { return GamePause; }
+    public bool IsGamePause { get { return GamePause; } }
 
     private bool LevelCleared = false;
-    public bool IsLevelCleared() { return LevelCleared; }
+    public bool IsLevelCleared { get { return LevelCleared; } }
+    public bool IsGameActive { get { return !GameEnd && !GamePause && !LevelCleared; } }
+    public bool IsGameConstrolsDisabled { get { return !IsGameActive || IsBlock; } }
     #endregion
 
     #region EventHandlers
@@ -62,7 +76,9 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnGameOver;
     public event EventHandler OnGameExit;
     public event EventHandler OnGameLevelCleared;
-    public event EventHandler OnLifeLose;
+    public event EventHandler OnRoundStart;
+    public event EventHandler OnRoundAction;
+    public event EventHandler OnRoundResolute;
     public void StartGame()
     {
         GameEnd = false;
@@ -93,9 +109,17 @@ public class GameManager : MonoBehaviour
         GameEnd = true;
         OnGameOver?.Invoke(this, EventArgs.Empty);
     }
-    public void LifeLose()
+    public void StartRound()
     {
-        OnLifeLose?.Invoke(this, EventArgs.Empty);
+        OnRoundStart?.Invoke(this, EventArgs.Empty);
+    }
+    public void ActionRound()
+    {
+        OnRoundAction?.Invoke(this, EventArgs.Empty);
+    }
+    public void ResoluteRound()
+    {
+        OnRoundResolute?.Invoke(this, EventArgs.Empty);
     }
     #endregion
 
@@ -103,13 +127,16 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         CreateSingleton();
-        OnGameStart += delegate { Time.timeScale = 1; };
+        OnGameStart += delegate { Time.timeScale = 1; StartRound(); };
         OnGamePause += delegate { Time.timeScale = 0; };
         OnGameResume += delegate { Time.timeScale = 1; };
-        OnGameEnd += delegate { Time.timeScale = 0; };
-        OnGameOver += delegate { Time.timeScale = 0; };
-        OnGameExit += delegate { Time.timeScale = 1; };
-        OnGameLevelCleared += delegate { Time.timeScale = 0; };
+        OnGameEnd += delegate { Time.timeScale = 0; ActualRound = RoundState.NoMoreRounds; };
+        OnGameOver += delegate { Time.timeScale = 0; ActualRound = RoundState.NoMoreRounds; };
+        OnGameExit += delegate { Time.timeScale = 1; ActualRound = RoundState.NoMoreRounds; };
+        OnGameLevelCleared += delegate { Time.timeScale = 0; ActualRound = RoundState.NoMoreRounds; };
+        OnRoundStart += delegate { Time.timeScale = 1; ActualRound = RoundState.Preparation; setBlock(false); };
+        OnRoundAction += delegate { ActualRound = RoundState.Action; setBlock(true); };
+        OnRoundResolute += delegate { ResoluteGame(); };
         StartGame();
     }
     private void Start()
@@ -118,12 +145,19 @@ public class GameManager : MonoBehaviour
         NivelSuelo = objSuelo.gameObject.transform.position.y;
         DisparosPorJuego = DisparosPorJuegoTotal;
         ObjetivosTotales = GameObject.FindGameObjectsWithTag("Objetivo").ToList().Count;
+
     }
     private void Update()
     {
-        if (DisparosPorJuego <= 0 && !Canon.Bloqueado && !GameEnd)
+        switch (ActualRound)
         {
-            StartCoroutine(ComprobarPerderJuego());
+            case RoundState.Action:
+                var lstDamageElement = GameObject.FindObjectsByType<_DamageElement>(FindObjectsSortMode.InstanceID);
+                if (lstDamageElement.Length == 0)
+                {
+                    ResoluteRound();
+                }
+                break;
         }
     }
     #endregion
@@ -133,24 +167,28 @@ public class GameManager : MonoBehaviour
     {
         ObjetivosTotales--;
     }
-    public void GanarJuego()
+    public void ResoluteGame()
     {
-        if (ObjetivosTotales <= 0)
+        if (CheckWin())
         {
             LevelClearedGame();
         }
-    }
-    IEnumerator ComprobarPerderJuego()
-    {
-        yield return new WaitForSeconds(2);
-        if (ObjetivosTotales > 0)
+        else if( CheckLose()) 
         {
-            PerderJuego();
+            GameOver();
+        }
+        else
+        {
+            StartRound();
         }
     }
-    public void PerderJuego()
+    public bool CheckWin()
     {
-        GameOver();
+        return ObjetivosTotales <= 0;
+    }
+    public bool CheckLose()
+    {
+        return DisparosPorJuego <= 0 && ObjetivosTotales > 0;
     }
     #endregion
 }

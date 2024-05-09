@@ -19,7 +19,7 @@ public class HUDSliderFuerza : MonoBehaviour
         slider.minValue = 10;
         slider.maxValue = 40;
         slider.value = (int)gameManager.VelocidadBala;
-        if (Canon.Bloqueado)
+        if (gameManager.IsBlock)
         {
             var scale = slider.gameObject.transform.localScale;
             scale.x = 0;

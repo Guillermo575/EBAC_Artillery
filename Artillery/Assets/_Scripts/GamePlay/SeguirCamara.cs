@@ -10,9 +10,17 @@ public class SeguirCamara : MonoBehaviour
     public Vector2 limiteXY = Vector2.zero;
     [Header("Configuracion Dinamica")]
     public float camZ;
+    private GameManager gameManager;
     #endregion
 
     #region Awake & Fixed Update
+    void Start()
+    {
+        gameManager = GameManager.GetManager();
+        gameManager.OnRoundStart += delegate {
+            objetivo = null;
+        };
+    }
     private void Awake()
     {
         camZ = this.transform.position.z;
@@ -27,17 +35,6 @@ public class SeguirCamara : MonoBehaviour
         else
         {
             destino = objetivo.transform.position;
-            if (objetivo.tag == "Bala")
-            {
-                bool sleeping = objetivo.GetComponent<Rigidbody>().IsSleeping();
-                if (sleeping) 
-                {
-                    objetivo = null;
-                    destino = Vector3.zero;
-                    Canon.Bloqueado = false;
-                    return;
-                }
-            }
         }
         destino.x = Mathf.Max(limiteXY.x, destino.x);
         destino.y = Mathf.Max(limiteXY.y, destino.y);

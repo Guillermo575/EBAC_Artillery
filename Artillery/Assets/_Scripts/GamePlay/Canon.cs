@@ -15,7 +15,6 @@ public class Canon : MonoBehaviour
     private GameObject puntaCanon;
     [SerializeField] private float rotacion;
     private GameManager gameManager;
-    public static bool Bloqueado;
     #endregion
 
     #region Controles
@@ -46,26 +45,19 @@ public class Canon : MonoBehaviour
         puntaCanon = transform.Find("PuntaCanon").gameObject;
         SonidoDisparo = GameObject.Find("Sonido_Disparo");
         SourceDisparo = SonidoDisparo.GetComponent<AudioSource>();
-        gameManager.OnGameStart += delegate { Bloqueado = false; };
-        gameManager.OnGamePause += delegate { Bloqueado = true; };
-        gameManager.OnGameResume += delegate { Bloqueado = false; };
-        gameManager.OnGameEnd += delegate { Bloqueado = true; };
-        gameManager.OnGameOver += delegate { Bloqueado = true; };
-        gameManager.OnGameLevelCleared += delegate { Bloqueado = true; };
-        Bloqueado = false;
         lineaRastro.positionCount = 0;
     }
     void Update()
     {
         ChangeAngle();
-        if (Bloqueado)
+        if (gameManager.IsGameConstrolsDisabled)
         {
             lineaRastro.positionCount = 0;
         }
     }
     public void ChangeAngle()
     {
-        if (Bloqueado) return;
+        if (gameManager.IsGameConstrolsDisabled) return;
         var ValorFuerza = modificarFuerza.ReadValue<float>();
         gameManager.VelocidadBala += ValorFuerza * 0.1f;
         if (gameManager.VelocidadBala > 40) gameManager.VelocidadBala = 40;
@@ -87,7 +79,7 @@ public class Canon : MonoBehaviour
     }
     public void ShotBullet(InputAction.CallbackContext context)
     {
-        if (gameManager.IsGamePause() || Bloqueado || gameManager.DisparosPorJuego == 0) return;
+        if (gameManager.IsGameConstrolsDisabled || gameManager.DisparosPorJuego == 0) return;
         GameObject temp = Instantiate(BalaPrefab, puntaCanon.transform.position, transform.rotation);
         Rigidbody tempRB = temp.GetComponent<Rigidbody>();
         SeguirCamara.objetivo = temp;
@@ -99,11 +91,11 @@ public class Canon : MonoBehaviour
         gameManager.DisparosPorJuego--;
         //SourceDisparo.PlayOneShot(clipDisparo);
         SourceDisparo.Play();
-        Bloqueado = true;
+        gameManager.ActionRound();
     }
     void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
     {
-        if (Bloqueado) return;
+        if (gameManager.IsGameConstrolsDisabled) return;
         int numSteps = 100; // for example
         float timeDelta = 1.0f / initialVelocity.magnitude; // for example
         lineaRastro.positionCount = (numSteps);

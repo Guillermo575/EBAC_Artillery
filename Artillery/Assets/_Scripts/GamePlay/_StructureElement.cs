@@ -24,6 +24,7 @@ public class _StructureElement : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.GetManager();
+        gameManager.OnRoundStart += delegate { damaged = false; };
         m_Renderer = this.gameObject.GetComponent<Renderer>();
         resistenceMax = resistence;
     }

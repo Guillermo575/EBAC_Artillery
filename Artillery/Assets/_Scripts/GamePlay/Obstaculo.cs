@@ -1,20 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Obstaculo : MonoBehaviour
+public class Obstaculo : _StructureElement
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Explosion" || other.tag == "Bala")
-        {
-            Destroy(this.gameObject);
-        }
+        CheckCollision(other.gameObject);
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Explosion" || collision.gameObject.tag == "Bala")
+        CheckCollision(collision.gameObject);
+    }
+    private void CheckCollision(GameObject gameObject)
+    {
+        if (gameObject.tag == "Explosion" || gameObject.tag == "Bala")
         {
-            Destroy(this.gameObject);
+            _DamageElement dam = gameObject.GetComponent<_DamageElement>();
+            if (dam == null) return;
+            ReceiveDamage(dam);
+            if (resistence <= 0)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }

@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Bala : MonoBehaviour
+public class Bala : _DamageElement
 {
     #region Variables
     public GameObject particulaExplosion;
-    private GameManager gameManager;
     private bool Colision;
     #endregion
 
@@ -26,17 +25,21 @@ public class Bala : MonoBehaviour
     #region Collision
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Suelo" && !Colision)
+        CheckCollision(collision.gameObject);
+    }
+    private void OnTriggerEnter(Collider collision)
+    {
+        CheckCollision(collision.gameObject);
+    }
+    private void CheckCollision(GameObject gameObject)
+    {
+        if (gameObject.tag == "Suelo" && !Colision)
         {
             Colision = true;
             Invoke("Explotar", 3);
         }
-        if (collision.gameObject.tag == "Obstaculo" || collision.gameObject.tag == "Objetivo")
+        if (gameObject.tag == "Obstaculo" || gameObject.tag == "Objetivo")
         {
-            //if(collision.gameObject.tag == "Obstaculo")
-            //{
-            //    Destroy(collision.gameObject);
-            //}
             Colision = true;
             Explotar();
         }
@@ -47,7 +50,6 @@ public class Bala : MonoBehaviour
     public void Explotar()
     {
         GameObject particulas = Instantiate(particulaExplosion, transform.position, Quaternion.identity) as GameObject;
-        Canon.Bloqueado = false;
         SeguirCamara.objetivo = null;
         Destroy(this.gameObject);
     }

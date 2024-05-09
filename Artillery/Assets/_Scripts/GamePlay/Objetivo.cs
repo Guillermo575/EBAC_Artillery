@@ -2,16 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-public class Objetivo : MonoBehaviour
+public class Objetivo : _StructureElement
 {
-    public UnityEvent GameWon;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Explosion" || other.tag == "Bala")
+        CheckCollision(other.gameObject);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        CheckCollision(collision.gameObject);
+    }
+    private void CheckCollision(GameObject gameObject)
+    {
+        if (gameObject.tag == "Explosion" || gameObject.tag == "Bala")
         {
-            GameManager.GetManager().RemoverObjetivo();
-            Destroy(this.gameObject);
-            GameWon.Invoke();
+            _DamageElement dam = gameObject.GetComponent<_DamageElement>();
+            if (dam == null) return;
+            ReceiveDamage(dam);
+            if (resistence <= 0)
+            {
+                GameManager.GetManager().RemoverObjetivo();
+                Destroy(this.gameObject);
+            }
         }
     }
 }

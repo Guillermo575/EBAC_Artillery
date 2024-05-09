@@ -21,11 +21,11 @@ public class MenuPausa : _Menu
     }
     private void Update()
     {
-        if (!gameManager.IsGameEnd())
+        if (!gameManager.IsGameEnd)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (gameManager.IsGamePause())
+                if (gameManager.IsGamePause)
                 {
                     gameManager.ResumeGame();
                 }
