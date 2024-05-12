@@ -45,7 +45,7 @@ public class MenuFinNivel : _Menu
     }
     public void RegresarAPantallaPrincipal()
     {
-        MostrarPantallaConfirmar(EventoRegresarAPantallaPrincipal, "¿Desea regresar al menu principal?");
+        MostrarPantallaConfirmar(EventoRegresarAPantallaPrincipal, "Do you want to return to the main menu?");
     }
     private void EventoRegresarAPantallaPrincipal()
     {

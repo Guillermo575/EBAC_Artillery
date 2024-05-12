@@ -198,7 +198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SI
+  m_text: YES
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8a20e8422a51d744991a8c2a7ed6506, type: 2}
   m_sharedMaterial: {fileID: -1965837218556662869, guid: b8a20e8422a51d744991a8c2a7ed6506, type: 2}
@@ -617,7 +617,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xBFEstas Seguro?"
+  m_text: ARE TOU SURE?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8a20e8422a51d744991a8c2a7ed6506, type: 2}
   m_sharedMaterial: {fileID: -1965837218556662869, guid: b8a20e8422a51d744991a8c2a7ed6506, type: 2}

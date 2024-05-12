@@ -52,7 +52,7 @@ public class MenuPausa : _Menu
     #region Botones Interfaz
     public void RegresarAPantallaPrincipal()
     {
-        MostrarPantallaConfirmar(EventoRegresarAPantallaPrincipal, "¿Desea regresar al menu principal?");
+        MostrarPantallaConfirmar(EventoRegresarAPantallaPrincipal, "Do you want to return to the main menu?");
     }
     private void EventoRegresarAPantallaPrincipal()
     {
@@ -60,7 +60,7 @@ public class MenuPausa : _Menu
     }
     public void ReintentarNivel()
     {
-        MostrarPantallaConfirmar(EventoReintentarNivel, "¿Desea reiniciar el nivel?");
+        MostrarPantallaConfirmar(EventoReintentarNivel, "Do you want to restart the level?");
     }
     public void EventoReintentarNivel()
     {
