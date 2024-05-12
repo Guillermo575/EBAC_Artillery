@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 268756141543642546, guid: b0117bf9b003ee941963cedb1c54594b, type: 3}
       propertyPath: m_Name
-      value: Cubo_1x4x8 (1)
+      value: Cubo_1x8x4 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7384952631685749871, guid: b0117bf9b003ee941963cedb1c54594b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -904,7 +904,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 268756141543642546, guid: b0117bf9b003ee941963cedb1c54594b, type: 3}
       propertyPath: m_Name
-      value: Cubo_1x4x8
+      value: Cubo_1x8x4
       objectReference: {fileID: 0}
     - target: {fileID: 7384952631685749871, guid: b0117bf9b003ee941963cedb1c54594b, type: 3}
       propertyPath: m_LocalPosition.x

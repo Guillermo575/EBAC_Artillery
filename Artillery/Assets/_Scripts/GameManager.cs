@@ -151,9 +151,18 @@ public class GameManager : MonoBehaviour
     {
         switch (ActualRound)
         {
+            case RoundState.Preparation:
+                if (CheckWin())
+                {
+                    LevelClearedGame();
+                }
+                break;
             case RoundState.Action:
                 var lstDamageElement = GameObject.FindObjectsByType<_DamageElement>(FindObjectsSortMode.InstanceID);
-                if (lstDamageElement.Length == 0)
+                lstDamageElement = (from x in lstDamageElement where x.enabled select x).ToArray();
+                var lstObstruct = GameObject.FindObjectsByType<Obstaculo>(FindObjectsSortMode.InstanceID);
+                lstObstruct = (from x in lstObstruct where !x.IsSleep() select x).ToArray();
+                if (lstDamageElement.Length == 0 && lstObstruct.Length == 0)
                 {
                     ResoluteRound();
                 }
