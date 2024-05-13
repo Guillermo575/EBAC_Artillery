@@ -32,7 +32,6 @@ public class MenuManager : MonoBehaviour
     public List<GameObject> lstMenuTree;
     public Opciones opciones;
     public MenuConfirmar menuConfirmar;
-    public GameObject HUDGame;
     public GameObject menuInicial;
     public GameObject menuOpciones;
     public GameObject menuPausa;
@@ -52,18 +51,6 @@ public class MenuManager : MonoBehaviour
     }
     void Update()
     {
-        if (HUDGame != null)
-        {
-            if (lstMenuTree.Count > 0) 
-            { 
-                HUDGame.SetActive(false); 
-            }
-            else 
-            { 
-                if(!HUDGame.activeSelf)
-                    HUDGame.SetActive(true); 
-            }
-        }
     }
     #endregion
 

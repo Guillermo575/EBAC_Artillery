@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static GameManager;
+
 public class Canon : MonoBehaviour
 {
     #region Variables
@@ -49,10 +52,14 @@ public class Canon : MonoBehaviour
     }
     void Update()
     {
-        ChangeAngle();
-        if (gameManager.IsGameConstrolsDisabled)
+        switch (gameManager.ActualRound)
         {
-            lineaRastro.positionCount = 0;
+            case RoundState.Preparation:
+                ChangeAngle();
+                break;
+            default:
+                lineaRastro.positionCount = 0;
+                break;
         }
     }
     public void ChangeAngle()

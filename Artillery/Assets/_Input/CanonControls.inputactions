@@ -33,18 +33,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "0a619756-d797-41be-9f8a-461dfd800407",
-                    "expectedControlType": "Vector2",
+                    "name": "Modificar Tiempo",
+                    "type": "Button",
+                    "id": "ba5f33d1-5b5d-495a-8f29-2ccab0ca245c",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "Teclado",
+                    "name": "Teclado_WASD",
                     "id": "0fbedc78-c6e9-4702-9065-4c7fae988e4e",
                     "path": "1DAxis",
                     "interactions": "",
@@ -69,6 +69,39 @@
                     "name": "positive",
                     "id": "3ba5f73a-11db-488e-a161-00785f2fa731",
                     "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Apuntar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Teclado_Flechas",
+                    "id": "4f04d6d7-9135-486e-a8fc-36fb452163b4",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Apuntar",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "3142d019-7cc3-4886-a5c4-e0c1aba05cc8",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Apuntar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "796c29e4-0470-45b9-a3fb-87fa08d72aeb",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -132,7 +165,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Teclado",
+                    "name": "Teclado_WASD",
                     "id": "67c462c2-9a73-4666-8b4e-23cf5b0a9611",
                     "path": "1DAxis",
                     "interactions": "",
@@ -145,7 +178,7 @@
                 {
                     "name": "negative",
                     "id": "c0497bab-9894-4424-83da-09865ad0ef40",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -156,7 +189,40 @@
                 {
                     "name": "positive",
                     "id": "bcb6fc9a-0726-4245-a106-dd9ed966dbe2",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Modificar Fuerza",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Teclado_Flechas",
+                    "id": "8a30a5db-9aa2-40be-bbbb-997bb022c7f6",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Modificar Fuerza",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "e32e6b11-b99b-42df-912e-453de639458c",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Modificar Fuerza",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "bc4e7c5a-e428-461a-843f-aa949820ab62",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -198,57 +264,101 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "2D Vector",
-                    "id": "0b1ec5e0-d7f2-4dcc-a8ea-d6c1e6e5ada6",
-                    "path": "2DVector",
+                    "name": "Teclado_WASD",
+                    "id": "4bfb3b36-2489-402a-90f0-ec0dcf4c20f8",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Modificar Tiempo",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "a5d591de-b7ee-4a7a-985f-ec967491852d",
-                    "path": "<Keyboard>/upArrow",
+                    "name": "negative",
+                    "id": "a8637732-25df-4cfc-b6be-467c90d83cca",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Modificar Tiempo",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "down",
-                    "id": "2e219115-6450-488d-9906-d8df358124f9",
-                    "path": "<Keyboard>/downArrow",
+                    "name": "positive",
+                    "id": "31d6bc92-6c99-4ad4-8193-75e87cd652c2",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Modificar Tiempo",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "left",
-                    "id": "14bf3b01-011a-4848-af30-48bcf19a38fb",
+                    "name": "Teclado_Flechas",
+                    "id": "7b059b38-f811-414a-9abd-5d9ece31b46a",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Modificar Tiempo",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "4aecffab-2b28-4642-b053-1be5ae9b8523",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Modificar Tiempo",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "right",
-                    "id": "dd429d0b-76d5-4c97-b36e-033b7dda8dec",
+                    "name": "positive",
+                    "id": "c0f8311b-3cac-492b-9779-5757c81bee90",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Modificar Tiempo",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Control",
+                    "id": "7018a499-2b96-41b6-a87b-6f89d32c7aff",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Modificar Tiempo",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "0739c05f-37e8-4ef4-b40e-b292f5e352aa",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Modificar Tiempo",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "66de6058-92cf-4370-b967-3535069519bd",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Modificar Tiempo",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

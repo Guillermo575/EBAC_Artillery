@@ -40,10 +40,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _VelocidadRotacion = 1;
 
     private float _NivelSuelo = -1000;
-    private int ObjetivosTotales;
-    private bool Bloqueado;
-    public bool IsBlock { get { return Bloqueado; } }
-    public void setBlock(bool Bloqueado) { this.Bloqueado = Bloqueado; }
+    private int _ObjetivosTotales;
+    public int ObjetivosTotales { get { return _ObjetivosTotales; } }
+
+    private bool _IsBlock;
+    public bool IsBlock { get { return _IsBlock; } }
+    public void setBlock(bool Bloqueado) { this._IsBlock = Bloqueado; }
 
     public RoundState ActualRound { get; set; } = 0;
     public enum RoundState
@@ -137,15 +139,14 @@ public class GameManager : MonoBehaviour
         OnRoundStart += delegate { Time.timeScale = 1; ActualRound = RoundState.Preparation; setBlock(false); };
         OnRoundAction += delegate { ActualRound = RoundState.Action; setBlock(true); };
         OnRoundResolute += delegate { ResoluteGame(); };
-        StartGame();
     }
     private void Start()
     {
         var objSuelo = GameObject.Find("Suelo");
         NivelSuelo = objSuelo.gameObject.transform.position.y;
         DisparosPorJuego = DisparosPorJuegoTotal;
-        ObjetivosTotales = GameObject.FindGameObjectsWithTag("Objetivo").ToList().Count;
-
+        _ObjetivosTotales = GameObject.FindGameObjectsWithTag("Objetivo").ToList().Count;
+        StartGame();
     }
     private void Update()
     {
@@ -174,7 +175,7 @@ public class GameManager : MonoBehaviour
     #region Ganar/Perder
     public void RemoverObjetivo()
     {
-        ObjetivosTotales--;
+        _ObjetivosTotales--;
     }
     public void ResoluteGame()
     {
@@ -193,11 +194,11 @@ public class GameManager : MonoBehaviour
     }
     public bool CheckWin()
     {
-        return ObjetivosTotales <= 0;
+        return _ObjetivosTotales <= 0;
     }
     public bool CheckLose()
     {
-        return DisparosPorJuego <= 0 && ObjetivosTotales > 0;
+        return DisparosPorJuego <= 0 && _ObjetivosTotales > 0;
     }
     #endregion
 }
