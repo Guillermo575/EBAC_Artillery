@@ -58,15 +58,15 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Level Game Variables
-    private bool GameEnd = false;
-    public bool IsGameEnd { get { return GameEnd; } }
+    private bool _GameEnd = false;
+    public bool IsGameEnd { get { return _GameEnd; } }
 
     private bool GamePause = false;
     public bool IsGamePause { get { return GamePause; } }
 
     private bool LevelCleared = false;
     public bool IsLevelCleared { get { return LevelCleared; } }
-    public bool IsGameActive { get { return !GameEnd && !GamePause && !LevelCleared; } }
+    public bool IsGameActive { get { return !_GameEnd && !GamePause && !LevelCleared; } }
     public bool IsGameConstrolsDisabled { get { return !IsGameActive || IsBlock; } }
     #endregion
 
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnRoundResolute;
     public void StartGame()
     {
-        GameEnd = false;
+        _GameEnd = false;
         OnGameStart?.Invoke(this, EventArgs.Empty);
     }
     public void PauseGame()
@@ -102,14 +102,17 @@ public class GameManager : MonoBehaviour
     }
     public void LevelClearedGame()
     {
-        GameEnd = true;
         LevelCleared = true;
         OnGameLevelCleared?.Invoke(this, EventArgs.Empty);
     }
     public void GameOver()
     {
-        GameEnd = true;
         OnGameOver?.Invoke(this, EventArgs.Empty);
+    }
+    public void GameEnd()
+    {
+        _GameEnd = true;
+        OnGameEnd?.Invoke(this, EventArgs.Empty);
     }
     public void StartRound()
     {
@@ -133,9 +136,9 @@ public class GameManager : MonoBehaviour
         OnGamePause += delegate { Time.timeScale = 0; };
         OnGameResume += delegate { Time.timeScale = 1; };
         OnGameEnd += delegate { Time.timeScale = 0; ActualRound = RoundState.NoMoreRounds; };
-        OnGameOver += delegate { Time.timeScale = 0; ActualRound = RoundState.NoMoreRounds; };
+        OnGameOver += delegate { GameEnd(); };
+        OnGameLevelCleared += delegate { GameEnd(); };
         OnGameExit += delegate { Time.timeScale = 1; ActualRound = RoundState.NoMoreRounds; };
-        OnGameLevelCleared += delegate { Time.timeScale = 0; ActualRound = RoundState.NoMoreRounds; };
         OnRoundStart += delegate { Time.timeScale = 1; ActualRound = RoundState.Preparation; setBlock(false); };
         OnRoundAction += delegate { ActualRound = RoundState.Action; setBlock(true); };
         OnRoundResolute += delegate { ResoluteGame(); };

@@ -8,10 +8,14 @@ public class PanelHUDAction : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.GetManager();
-        gameManager.OnGameLevelCleared += delegate { HUDGame.SetActive(false); };
-        gameManager.OnGameOver += delegate { HUDGame.SetActive(false); };
+        gameManager.OnGamePause += delegate { HUDGame.SetActive(false); };
+        gameManager.OnGameResume += delegate { HUDGame.SetActive(gameManager.ActualRound == GameManager.RoundState.Action); };
+        gameManager.OnGameEnd += delegate { HUDGame.SetActive(false); };
         gameManager.OnRoundStart += delegate { HUDGame.SetActive(false); };
         gameManager.OnRoundAction += delegate { HUDGame.SetActive(true); };
-        gameManager.OnRoundResolute += delegate { HUDGame.SetActive(false); };
+    }
+    public void PauseGame()
+    {
+        gameManager.PauseGame();
     }
 }

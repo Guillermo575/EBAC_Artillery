@@ -55,9 +55,18 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Modificar Tiempo"",
+                    ""name"": ""Time_Slow"",
                     ""type"": ""Button"",
-                    ""id"": ""ba5f33d1-5b5d-495a-8f29-2ccab0ca245c"",
+                    ""id"": ""e0478a76-3053-4609-9401-95f00baeeebd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Time_Fast"",
+                    ""type"": ""Button"",
+                    ""id"": ""56e2d6ba-5169-4f2f-addd-3a34407d6452"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -286,103 +295,70 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Teclado_WASD"",
-                    ""id"": ""4bfb3b36-2489-402a-90f0-ec0dcf4c20f8"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Modificar Tiempo"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""a8637732-25df-4cfc-b6be-467c90d83cca"",
+                    ""name"": """",
+                    ""id"": ""37471b5a-49b4-4bc7-a93b-7358f86c3fa8"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Modificar Tiempo"",
+                    ""action"": ""Time_Slow"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""31d6bc92-6c99-4ad4-8193-75e87cd652c2"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Modificar Tiempo"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Teclado_Flechas"",
-                    ""id"": ""7b059b38-f811-414a-9abd-5d9ece31b46a"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Modificar Tiempo"",
-                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""4aecffab-2b28-4642-b053-1be5ae9b8523"",
+                    ""name"": """",
+                    ""id"": ""197caf21-ee9e-4edf-932d-b175315abadd"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Modificar Tiempo"",
+                    ""action"": ""Time_Slow"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""c0f8311b-3cac-492b-9779-5757c81bee90"",
+                    ""name"": """",
+                    ""id"": ""329468e6-5124-4cb8-bd73-12fcdf5b2ae3"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Time_Slow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6afe4bee-ea8d-47c8-9cb3-a26cd75c5c0b"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Time_Fast"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f387f79-8e4c-4646-9169-8c02daff415e"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Modificar Tiempo"",
+                    ""action"": ""Time_Fast"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Control"",
-                    ""id"": ""7018a499-2b96-41b6-a87b-6f89d32c7aff"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Modificar Tiempo"",
-                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""0739c05f-37e8-4ef4-b40e-b292f5e352aa"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""name"": """",
+                    ""id"": ""042d34ce-cce2-4ba0-9bb6-7ec7dae2453d"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Modificar Tiempo"",
+                    ""action"": ""Time_Fast"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""66de6058-92cf-4370-b967-3535069519bd"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Modificar Tiempo"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -416,7 +392,8 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
         m_Canon_Apuntar = m_Canon.FindAction("Apuntar", throwIfNotFound: true);
         m_Canon_Disparar = m_Canon.FindAction("Disparar", throwIfNotFound: true);
         m_Canon_ModificarFuerza = m_Canon.FindAction("Modificar Fuerza", throwIfNotFound: true);
-        m_Canon_ModificarTiempo = m_Canon.FindAction("Modificar Tiempo", throwIfNotFound: true);
+        m_Canon_Time_Slow = m_Canon.FindAction("Time_Slow", throwIfNotFound: true);
+        m_Canon_Time_Fast = m_Canon.FindAction("Time_Fast", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -481,7 +458,8 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Canon_Apuntar;
     private readonly InputAction m_Canon_Disparar;
     private readonly InputAction m_Canon_ModificarFuerza;
-    private readonly InputAction m_Canon_ModificarTiempo;
+    private readonly InputAction m_Canon_Time_Slow;
+    private readonly InputAction m_Canon_Time_Fast;
     public struct CanonActions
     {
         private @CanonControls m_Wrapper;
@@ -489,7 +467,8 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
         public InputAction @Apuntar => m_Wrapper.m_Canon_Apuntar;
         public InputAction @Disparar => m_Wrapper.m_Canon_Disparar;
         public InputAction @ModificarFuerza => m_Wrapper.m_Canon_ModificarFuerza;
-        public InputAction @ModificarTiempo => m_Wrapper.m_Canon_ModificarTiempo;
+        public InputAction @Time_Slow => m_Wrapper.m_Canon_Time_Slow;
+        public InputAction @Time_Fast => m_Wrapper.m_Canon_Time_Fast;
         public InputActionMap Get() { return m_Wrapper.m_Canon; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -508,9 +487,12 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
             @ModificarFuerza.started += instance.OnModificarFuerza;
             @ModificarFuerza.performed += instance.OnModificarFuerza;
             @ModificarFuerza.canceled += instance.OnModificarFuerza;
-            @ModificarTiempo.started += instance.OnModificarTiempo;
-            @ModificarTiempo.performed += instance.OnModificarTiempo;
-            @ModificarTiempo.canceled += instance.OnModificarTiempo;
+            @Time_Slow.started += instance.OnTime_Slow;
+            @Time_Slow.performed += instance.OnTime_Slow;
+            @Time_Slow.canceled += instance.OnTime_Slow;
+            @Time_Fast.started += instance.OnTime_Fast;
+            @Time_Fast.performed += instance.OnTime_Fast;
+            @Time_Fast.canceled += instance.OnTime_Fast;
         }
 
         private void UnregisterCallbacks(ICanonActions instance)
@@ -524,9 +506,12 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
             @ModificarFuerza.started -= instance.OnModificarFuerza;
             @ModificarFuerza.performed -= instance.OnModificarFuerza;
             @ModificarFuerza.canceled -= instance.OnModificarFuerza;
-            @ModificarTiempo.started -= instance.OnModificarTiempo;
-            @ModificarTiempo.performed -= instance.OnModificarTiempo;
-            @ModificarTiempo.canceled -= instance.OnModificarTiempo;
+            @Time_Slow.started -= instance.OnTime_Slow;
+            @Time_Slow.performed -= instance.OnTime_Slow;
+            @Time_Slow.canceled -= instance.OnTime_Slow;
+            @Time_Fast.started -= instance.OnTime_Fast;
+            @Time_Fast.performed -= instance.OnTime_Fast;
+            @Time_Fast.canceled -= instance.OnTime_Fast;
         }
 
         public void RemoveCallbacks(ICanonActions instance)
@@ -558,6 +543,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
         void OnApuntar(InputAction.CallbackContext context);
         void OnDisparar(InputAction.CallbackContext context);
         void OnModificarFuerza(InputAction.CallbackContext context);
-        void OnModificarTiempo(InputAction.CallbackContext context);
+        void OnTime_Slow(InputAction.CallbackContext context);
+        void OnTime_Fast(InputAction.CallbackContext context);
     }
 }

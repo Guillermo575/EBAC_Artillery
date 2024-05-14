@@ -151,4 +151,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resistence: 2
-  objTexturaRuptura: {fileID: 0}
+  objTexturaRuptura: {fileID: 11400000, guid: 867dd7638ae4d2947afef6e1b627067f, type: 2}

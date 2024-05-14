@@ -8,7 +8,8 @@ public class HUDSlowFast : MonoBehaviour
     #region Variables
     private GameManager gameManager;
     public CanonControls canonControls;
-    private InputAction modificarVelocidad;
+    private InputAction TimeSlow;
+    private InputAction TimeFast;
     #endregion
 
     #region Awake & Start & Update
@@ -19,18 +20,20 @@ public class HUDSlowFast : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.GetManager();
-        modificarVelocidad = canonControls.Canon.ModificarTiempo;
+        TimeSlow = canonControls.Canon.Time_Slow;
+        TimeSlow.performed += SlowGameKey;
+        TimeFast = canonControls.Canon.Time_Fast;
+        TimeFast.performed += FastGameKey;
     }
     void Update()
     {
         switch (gameManager.ActualRound)
         {
             case RoundState.Action:
-                var ValorFuerza = modificarVelocidad.ReadValue<float>();
-                if (ValorFuerza < 0) SlowGame();
-                if (ValorFuerza > 0) SlowGame();
+                habilitarControles();
                 break;
             default:
+                deshabilitarControles();
                 Time.timeScale = 1;
                 break;
         }
@@ -38,13 +41,33 @@ public class HUDSlowFast : MonoBehaviour
     #endregion
 
     #region Function
-    public void SlowGame()
+    public void habilitarControles()
     {
-        changeTime(-0.5f);
+        TimeSlow.Enable();
+        TimeFast.Enable();
     }
-    public void FastGame()
+    public void deshabilitarControles()
     {
-        changeTime(0.5f);
+        TimeSlow.Disable();
+        TimeFast.Disable();
+    }
+    public void SlowGameKey(InputAction.CallbackContext context)
+    {
+        SlowGame(-0.5f);
+    }
+    public void SlowGame(float time = -0.5f)
+    {
+        time = time > 0 ? -time : time;
+        changeTime(time);
+    }
+    public void FastGameKey(InputAction.CallbackContext context)
+    {
+        FastGame(0.5f);
+    }
+    public void FastGame(float time = 0.5f)
+    {
+        time = time < 0 ? -time : time;
+        changeTime(time);
     }
     public void changeTime(float TimeScale)
     {
@@ -60,6 +83,7 @@ public class HUDSlowFast : MonoBehaviour
             }
         }
         float SumTimeScale = Time.timeScale + TimeScale;
+        SumTimeScale = SumTimeScale <= 0.1f ? 0.1f : SumTimeScale;
         if (SumTimeScale < 0 || SumTimeScale > 3) return;
         Time.timeScale = SumTimeScale;
     }

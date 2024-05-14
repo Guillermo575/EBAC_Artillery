@@ -354,7 +354,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pausa
+  m_text: Pause
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8a20e8422a51d744991a8c2a7ed6506, type: 2}
   m_sharedMaterial: {fileID: -1965837218556662869, guid: b8a20e8422a51d744991a8c2a7ed6506, type: 2}
@@ -718,7 +718,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -111.4, y: -43}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 112.63, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &694186645118707241
 CanvasRenderer:
@@ -802,8 +802,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 7505202452477851359}
+        m_TargetAssemblyTypeName: PanelHUD, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 1
         m_Arguments:
