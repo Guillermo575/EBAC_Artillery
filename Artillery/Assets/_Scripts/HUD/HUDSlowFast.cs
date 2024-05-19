@@ -7,7 +7,7 @@ public class HUDSlowFast : MonoBehaviour
 {
     #region Variables
     private GameManager gameManager;
-    public CanonControls canonControls;
+    private InputManager inputManager;
     private InputAction TimeSlow;
     private InputAction TimeFast;
     #endregion
@@ -15,14 +15,14 @@ public class HUDSlowFast : MonoBehaviour
     #region Awake & Start & Update
     private void Awake()
     {
-        canonControls = new CanonControls();
     }
     void Start()
     {
         gameManager = GameManager.GetManager();
-        TimeSlow = canonControls.Canon.Time_Slow;
+        inputManager = InputManager.GetManager();
+        TimeSlow = inputManager.GetAction("Time_Slow");
         TimeSlow.performed += SlowGameKey;
-        TimeFast = canonControls.Canon.Time_Fast;
+        TimeFast = inputManager.GetAction("Time_Fast");
         TimeFast.performed += FastGameKey;
     }
     void Update()

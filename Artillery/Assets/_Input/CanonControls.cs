@@ -46,7 +46,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Modificar Fuerza"",
+                    ""name"": ""Modificar_Fuerza"",
                     ""type"": ""Button"",
                     ""id"": ""e04639ea-5da2-4caf-a7e2-841aaf046780"",
                     ""expectedControlType"": ""Button"",
@@ -202,7 +202,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Modificar Fuerza"",
+                    ""action"": ""Modificar_Fuerza"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -213,7 +213,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Modificar Fuerza"",
+                    ""action"": ""Modificar_Fuerza"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -224,7 +224,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Modificar Fuerza"",
+                    ""action"": ""Modificar_Fuerza"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -235,7 +235,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Modificar Fuerza"",
+                    ""action"": ""Modificar_Fuerza"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -246,7 +246,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Modificar Fuerza"",
+                    ""action"": ""Modificar_Fuerza"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -257,7 +257,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Modificar Fuerza"",
+                    ""action"": ""Modificar_Fuerza"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -268,7 +268,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Modificar Fuerza"",
+                    ""action"": ""Modificar_Fuerza"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -279,7 +279,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Modificar Fuerza"",
+                    ""action"": ""Modificar_Fuerza"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -290,7 +290,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Modificar Fuerza"",
+                    ""action"": ""Modificar_Fuerza"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -391,7 +391,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
         m_Canon = asset.FindActionMap("Canon", throwIfNotFound: true);
         m_Canon_Apuntar = m_Canon.FindAction("Apuntar", throwIfNotFound: true);
         m_Canon_Disparar = m_Canon.FindAction("Disparar", throwIfNotFound: true);
-        m_Canon_ModificarFuerza = m_Canon.FindAction("Modificar Fuerza", throwIfNotFound: true);
+        m_Canon_Modificar_Fuerza = m_Canon.FindAction("Modificar_Fuerza", throwIfNotFound: true);
         m_Canon_Time_Slow = m_Canon.FindAction("Time_Slow", throwIfNotFound: true);
         m_Canon_Time_Fast = m_Canon.FindAction("Time_Fast", throwIfNotFound: true);
     }
@@ -457,7 +457,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
     private List<ICanonActions> m_CanonActionsCallbackInterfaces = new List<ICanonActions>();
     private readonly InputAction m_Canon_Apuntar;
     private readonly InputAction m_Canon_Disparar;
-    private readonly InputAction m_Canon_ModificarFuerza;
+    private readonly InputAction m_Canon_Modificar_Fuerza;
     private readonly InputAction m_Canon_Time_Slow;
     private readonly InputAction m_Canon_Time_Fast;
     public struct CanonActions
@@ -466,7 +466,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
         public CanonActions(@CanonControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Apuntar => m_Wrapper.m_Canon_Apuntar;
         public InputAction @Disparar => m_Wrapper.m_Canon_Disparar;
-        public InputAction @ModificarFuerza => m_Wrapper.m_Canon_ModificarFuerza;
+        public InputAction @Modificar_Fuerza => m_Wrapper.m_Canon_Modificar_Fuerza;
         public InputAction @Time_Slow => m_Wrapper.m_Canon_Time_Slow;
         public InputAction @Time_Fast => m_Wrapper.m_Canon_Time_Fast;
         public InputActionMap Get() { return m_Wrapper.m_Canon; }
@@ -484,9 +484,9 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
             @Disparar.started += instance.OnDisparar;
             @Disparar.performed += instance.OnDisparar;
             @Disparar.canceled += instance.OnDisparar;
-            @ModificarFuerza.started += instance.OnModificarFuerza;
-            @ModificarFuerza.performed += instance.OnModificarFuerza;
-            @ModificarFuerza.canceled += instance.OnModificarFuerza;
+            @Modificar_Fuerza.started += instance.OnModificar_Fuerza;
+            @Modificar_Fuerza.performed += instance.OnModificar_Fuerza;
+            @Modificar_Fuerza.canceled += instance.OnModificar_Fuerza;
             @Time_Slow.started += instance.OnTime_Slow;
             @Time_Slow.performed += instance.OnTime_Slow;
             @Time_Slow.canceled += instance.OnTime_Slow;
@@ -503,9 +503,9 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
             @Disparar.started -= instance.OnDisparar;
             @Disparar.performed -= instance.OnDisparar;
             @Disparar.canceled -= instance.OnDisparar;
-            @ModificarFuerza.started -= instance.OnModificarFuerza;
-            @ModificarFuerza.performed -= instance.OnModificarFuerza;
-            @ModificarFuerza.canceled -= instance.OnModificarFuerza;
+            @Modificar_Fuerza.started -= instance.OnModificar_Fuerza;
+            @Modificar_Fuerza.performed -= instance.OnModificar_Fuerza;
+            @Modificar_Fuerza.canceled -= instance.OnModificar_Fuerza;
             @Time_Slow.started -= instance.OnTime_Slow;
             @Time_Slow.performed -= instance.OnTime_Slow;
             @Time_Slow.canceled -= instance.OnTime_Slow;
@@ -542,7 +542,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
     {
         void OnApuntar(InputAction.CallbackContext context);
         void OnDisparar(InputAction.CallbackContext context);
-        void OnModificarFuerza(InputAction.CallbackContext context);
+        void OnModificar_Fuerza(InputAction.CallbackContext context);
         void OnTime_Slow(InputAction.CallbackContext context);
         void OnTime_Fast(InputAction.CallbackContext context);
     }

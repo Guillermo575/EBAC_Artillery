@@ -21,7 +21,7 @@ public class Canon : MonoBehaviour
     #endregion
 
     #region Controles
-    public CanonControls canonControls;
+    private InputManager inputManager;
     private InputAction apuntar;
     private InputAction modificarFuerza;
     private InputAction disparar;
@@ -30,13 +30,13 @@ public class Canon : MonoBehaviour
     #region Start & Update
     private void Awake()
     {
-        canonControls = new CanonControls();
     }
     private void OnEnable()
     {
-        apuntar = canonControls.Canon.Apuntar;
-        modificarFuerza = canonControls.Canon.ModificarFuerza;
-        disparar = canonControls.Canon.Disparar;
+        inputManager = InputManager.GetManager();
+        apuntar = inputManager.GetAction("Apuntar");
+        modificarFuerza = inputManager.GetAction("Modificar_Fuerza");
+        disparar = inputManager.GetAction("Disparar");
         apuntar.Enable();
         modificarFuerza.Enable();
         disparar.Enable();

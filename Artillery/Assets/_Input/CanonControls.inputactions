@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Modificar Fuerza",
+                    "name": "Modificar_Fuerza",
                     "type": "Button",
                     "id": "e04639ea-5da2-4caf-a7e2-841aaf046780",
                     "expectedControlType": "Button",
@@ -180,7 +180,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Modificar Fuerza",
+                    "action": "Modificar_Fuerza",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -191,7 +191,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Modificar Fuerza",
+                    "action": "Modificar_Fuerza",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -202,7 +202,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Modificar Fuerza",
+                    "action": "Modificar_Fuerza",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -213,7 +213,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Modificar Fuerza",
+                    "action": "Modificar_Fuerza",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -224,7 +224,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Modificar Fuerza",
+                    "action": "Modificar_Fuerza",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -235,7 +235,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Modificar Fuerza",
+                    "action": "Modificar_Fuerza",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -246,7 +246,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Modificar Fuerza",
+                    "action": "Modificar_Fuerza",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -257,7 +257,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Modificar Fuerza",
+                    "action": "Modificar_Fuerza",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -268,7 +268,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Modificar Fuerza",
+                    "action": "Modificar_Fuerza",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },

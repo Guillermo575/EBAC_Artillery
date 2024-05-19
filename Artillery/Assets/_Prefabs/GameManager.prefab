@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3400186474177417611}
   - component: {fileID: 490042483876420295}
+  - component: {fileID: 1109080886932476971}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -48,3 +49,18 @@ MonoBehaviour:
   _DisparosPorJuego: 3
   _DisparosPorJuegoTotal: 3
   _VelocidadRotacion: 1
+--- !u!114 &1109080886932476971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75030379211347666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6bebe0a827f784eb26c3eff090eeaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainInput: {fileID: -944628639613478452, guid: 8c5ce1aa0863e9d4793dadbc3518aef6, type: 3}
+  lstInputs:
+  - {fileID: -944628639613478452, guid: 8c5ce1aa0863e9d4793dadbc3518aef6, type: 3}
