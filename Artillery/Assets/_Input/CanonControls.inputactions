@@ -31,24 +31,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Time_Slow",
-                    "type": "Button",
-                    "id": "e0478a76-3053-4609-9401-95f00baeeebd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Time_Fast",
-                    "type": "Button",
-                    "id": "56e2d6ba-5169-4f2f-addd-3a34407d6452",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -119,7 +101,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Control",
+                    "name": "GamePad",
                     "id": "b17b871a-fe6d-4837-b9d8-b80f16bdbd94",
                     "path": "1DAxis",
                     "interactions": "",
@@ -165,7 +147,7 @@
                 {
                     "name": "",
                     "id": "71ab37d5-ef82-4d7c-bfc5-743c44b94197",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -240,7 +222,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Control",
+                    "name": "GamePad",
                     "id": "2b5575d9-6124-440c-95b5-600f36d28be7",
                     "path": "1DAxis",
                     "interactions": "",
@@ -271,10 +253,36 @@
                     "action": "Modificar_Fuerza",
                     "isComposite": false,
                     "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "HUD_Time",
+            "id": "86f78f7c-3788-4340-adb1-e50b265c49d8",
+            "actions": [
+                {
+                    "name": "Time_Slow",
+                    "type": "Button",
+                    "id": "67eebdda-504d-400b-af91-21d2771063cb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
+                    "name": "Time_Fast",
+                    "type": "Button",
+                    "id": "7c397205-9f23-4313-8ec5-b9ce80dd37ff",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
                     "name": "",
-                    "id": "37471b5a-49b4-4bc7-a93b-7358f86c3fa8",
+                    "id": "3a03c875-2057-4404-9822-c3351a7e685f",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -285,7 +293,7 @@
                 },
                 {
                     "name": "",
-                    "id": "197caf21-ee9e-4edf-932d-b175315abadd",
+                    "id": "b9a88bcb-f57e-4353-b2c2-9423873e596b",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
@@ -296,7 +304,7 @@
                 },
                 {
                     "name": "",
-                    "id": "329468e6-5124-4cb8-bd73-12fcdf5b2ae3",
+                    "id": "958ac54a-7fbb-4177-8b0c-5d75443c2b43",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
@@ -307,7 +315,7 @@
                 },
                 {
                     "name": "",
-                    "id": "6afe4bee-ea8d-47c8-9cb3-a26cd75c5c0b",
+                    "id": "c5222c14-a6aa-4a28-9806-8d5773d282b5",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -318,7 +326,7 @@
                 },
                 {
                     "name": "",
-                    "id": "8f387f79-8e4c-4646-9169-8c02daff415e",
+                    "id": "d5157941-b7b2-4a89-b648-169bd19302e2",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
@@ -329,7 +337,7 @@
                 },
                 {
                     "name": "",
-                    "id": "042d34ce-cce2-4ba0-9bb6-7ec7dae2453d",
+                    "id": "8efb56ad-80b8-47d8-91c3-c70e3115c159",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",

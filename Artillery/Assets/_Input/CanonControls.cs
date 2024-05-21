@@ -53,24 +53,6 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Time_Slow"",
-                    ""type"": ""Button"",
-                    ""id"": ""e0478a76-3053-4609-9401-95f00baeeebd"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Time_Fast"",
-                    ""type"": ""Button"",
-                    ""id"": ""56e2d6ba-5169-4f2f-addd-3a34407d6452"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -141,7 +123,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Control"",
+                    ""name"": ""GamePad"",
                     ""id"": ""b17b871a-fe6d-4837-b9d8-b80f16bdbd94"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -187,7 +169,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""71ab37d5-ef82-4d7c-bfc5-743c44b94197"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -262,7 +244,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Control"",
+                    ""name"": ""GamePad"",
                     ""id"": ""2b5575d9-6124-440c-95b5-600f36d28be7"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -293,10 +275,36 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""action"": ""Modificar_Fuerza"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""HUD_Time"",
+            ""id"": ""86f78f7c-3788-4340-adb1-e50b265c49d8"",
+            ""actions"": [
+                {
+                    ""name"": ""Time_Slow"",
+                    ""type"": ""Button"",
+                    ""id"": ""67eebdda-504d-400b-af91-21d2771063cb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Time_Fast"",
+                    ""type"": ""Button"",
+                    ""id"": ""7c397205-9f23-4313-8ec5-b9ce80dd37ff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
                     ""name"": """",
-                    ""id"": ""37471b5a-49b4-4bc7-a93b-7358f86c3fa8"",
+                    ""id"": ""3a03c875-2057-4404-9822-c3351a7e685f"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -307,7 +315,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""197caf21-ee9e-4edf-932d-b175315abadd"",
+                    ""id"": ""b9a88bcb-f57e-4353-b2c2-9423873e596b"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -318,7 +326,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""329468e6-5124-4cb8-bd73-12fcdf5b2ae3"",
+                    ""id"": ""958ac54a-7fbb-4177-8b0c-5d75443c2b43"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -329,7 +337,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6afe4bee-ea8d-47c8-9cb3-a26cd75c5c0b"",
+                    ""id"": ""c5222c14-a6aa-4a28-9806-8d5773d282b5"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -340,7 +348,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8f387f79-8e4c-4646-9169-8c02daff415e"",
+                    ""id"": ""d5157941-b7b2-4a89-b648-169bd19302e2"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -351,7 +359,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""042d34ce-cce2-4ba0-9bb6-7ec7dae2453d"",
+                    ""id"": ""8efb56ad-80b8-47d8-91c3-c70e3115c159"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -392,8 +400,10 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
         m_Canon_Apuntar = m_Canon.FindAction("Apuntar", throwIfNotFound: true);
         m_Canon_Disparar = m_Canon.FindAction("Disparar", throwIfNotFound: true);
         m_Canon_Modificar_Fuerza = m_Canon.FindAction("Modificar_Fuerza", throwIfNotFound: true);
-        m_Canon_Time_Slow = m_Canon.FindAction("Time_Slow", throwIfNotFound: true);
-        m_Canon_Time_Fast = m_Canon.FindAction("Time_Fast", throwIfNotFound: true);
+        // HUD_Time
+        m_HUD_Time = asset.FindActionMap("HUD_Time", throwIfNotFound: true);
+        m_HUD_Time_Time_Slow = m_HUD_Time.FindAction("Time_Slow", throwIfNotFound: true);
+        m_HUD_Time_Time_Fast = m_HUD_Time.FindAction("Time_Fast", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -458,8 +468,6 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Canon_Apuntar;
     private readonly InputAction m_Canon_Disparar;
     private readonly InputAction m_Canon_Modificar_Fuerza;
-    private readonly InputAction m_Canon_Time_Slow;
-    private readonly InputAction m_Canon_Time_Fast;
     public struct CanonActions
     {
         private @CanonControls m_Wrapper;
@@ -467,8 +475,6 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
         public InputAction @Apuntar => m_Wrapper.m_Canon_Apuntar;
         public InputAction @Disparar => m_Wrapper.m_Canon_Disparar;
         public InputAction @Modificar_Fuerza => m_Wrapper.m_Canon_Modificar_Fuerza;
-        public InputAction @Time_Slow => m_Wrapper.m_Canon_Time_Slow;
-        public InputAction @Time_Fast => m_Wrapper.m_Canon_Time_Fast;
         public InputActionMap Get() { return m_Wrapper.m_Canon; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -487,12 +493,6 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
             @Modificar_Fuerza.started += instance.OnModificar_Fuerza;
             @Modificar_Fuerza.performed += instance.OnModificar_Fuerza;
             @Modificar_Fuerza.canceled += instance.OnModificar_Fuerza;
-            @Time_Slow.started += instance.OnTime_Slow;
-            @Time_Slow.performed += instance.OnTime_Slow;
-            @Time_Slow.canceled += instance.OnTime_Slow;
-            @Time_Fast.started += instance.OnTime_Fast;
-            @Time_Fast.performed += instance.OnTime_Fast;
-            @Time_Fast.canceled += instance.OnTime_Fast;
         }
 
         private void UnregisterCallbacks(ICanonActions instance)
@@ -506,12 +506,6 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
             @Modificar_Fuerza.started -= instance.OnModificar_Fuerza;
             @Modificar_Fuerza.performed -= instance.OnModificar_Fuerza;
             @Modificar_Fuerza.canceled -= instance.OnModificar_Fuerza;
-            @Time_Slow.started -= instance.OnTime_Slow;
-            @Time_Slow.performed -= instance.OnTime_Slow;
-            @Time_Slow.canceled -= instance.OnTime_Slow;
-            @Time_Fast.started -= instance.OnTime_Fast;
-            @Time_Fast.performed -= instance.OnTime_Fast;
-            @Time_Fast.canceled -= instance.OnTime_Fast;
         }
 
         public void RemoveCallbacks(ICanonActions instance)
@@ -529,6 +523,60 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
         }
     }
     public CanonActions @Canon => new CanonActions(this);
+
+    // HUD_Time
+    private readonly InputActionMap m_HUD_Time;
+    private List<IHUD_TimeActions> m_HUD_TimeActionsCallbackInterfaces = new List<IHUD_TimeActions>();
+    private readonly InputAction m_HUD_Time_Time_Slow;
+    private readonly InputAction m_HUD_Time_Time_Fast;
+    public struct HUD_TimeActions
+    {
+        private @CanonControls m_Wrapper;
+        public HUD_TimeActions(@CanonControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Time_Slow => m_Wrapper.m_HUD_Time_Time_Slow;
+        public InputAction @Time_Fast => m_Wrapper.m_HUD_Time_Time_Fast;
+        public InputActionMap Get() { return m_Wrapper.m_HUD_Time; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(HUD_TimeActions set) { return set.Get(); }
+        public void AddCallbacks(IHUD_TimeActions instance)
+        {
+            if (instance == null || m_Wrapper.m_HUD_TimeActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_HUD_TimeActionsCallbackInterfaces.Add(instance);
+            @Time_Slow.started += instance.OnTime_Slow;
+            @Time_Slow.performed += instance.OnTime_Slow;
+            @Time_Slow.canceled += instance.OnTime_Slow;
+            @Time_Fast.started += instance.OnTime_Fast;
+            @Time_Fast.performed += instance.OnTime_Fast;
+            @Time_Fast.canceled += instance.OnTime_Fast;
+        }
+
+        private void UnregisterCallbacks(IHUD_TimeActions instance)
+        {
+            @Time_Slow.started -= instance.OnTime_Slow;
+            @Time_Slow.performed -= instance.OnTime_Slow;
+            @Time_Slow.canceled -= instance.OnTime_Slow;
+            @Time_Fast.started -= instance.OnTime_Fast;
+            @Time_Fast.performed -= instance.OnTime_Fast;
+            @Time_Fast.canceled -= instance.OnTime_Fast;
+        }
+
+        public void RemoveCallbacks(IHUD_TimeActions instance)
+        {
+            if (m_Wrapper.m_HUD_TimeActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IHUD_TimeActions instance)
+        {
+            foreach (var item in m_Wrapper.m_HUD_TimeActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_HUD_TimeActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public HUD_TimeActions @HUD_Time => new HUD_TimeActions(this);
     private int m_GenericSchemeIndex = -1;
     public InputControlScheme GenericScheme
     {
@@ -543,6 +591,9 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
         void OnApuntar(InputAction.CallbackContext context);
         void OnDisparar(InputAction.CallbackContext context);
         void OnModificar_Fuerza(InputAction.CallbackContext context);
+    }
+    public interface IHUD_TimeActions
+    {
         void OnTime_Slow(InputAction.CallbackContext context);
         void OnTime_Fast(InputAction.CallbackContext context);
     }

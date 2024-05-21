@@ -33,14 +33,6 @@ public class Canon : MonoBehaviour
     }
     private void OnEnable()
     {
-        inputManager = InputManager.GetManager();
-        apuntar = inputManager.GetAction("Apuntar");
-        modificarFuerza = inputManager.GetAction("Modificar_Fuerza");
-        disparar = inputManager.GetAction("Disparar");
-        apuntar.Enable();
-        modificarFuerza.Enable();
-        disparar.Enable();
-        disparar.performed += ShotBullet;
     }
     void Start()
     {
@@ -49,6 +41,14 @@ public class Canon : MonoBehaviour
         SonidoDisparo = GameObject.Find("Sonido_Disparo");
         SourceDisparo = SonidoDisparo.GetComponent<AudioSource>();
         lineaRastro.positionCount = 0;
+        inputManager = InputManager.GetManager();
+        apuntar = inputManager.GetAction("Apuntar");
+        modificarFuerza = inputManager.GetAction("Modificar_Fuerza");
+        disparar = inputManager.GetAction("Disparar");
+        apuntar.Enable();
+        modificarFuerza.Enable();
+        disparar.Enable();
+        disparar.performed += ShotBullet;
     }
     void Update()
     {
