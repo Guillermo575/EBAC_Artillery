@@ -14,7 +14,7 @@ public class Objetivo : _StructureElement
     }
     private void CheckCollision(GameObject gameObject)
     {
-        if (gameObject.tag == "Explosion" || gameObject.tag == "Bala")
+        if (gameObject.tag == "Explosion" || gameObject.tag == "Obstaculo")
         {
             _DamageElement dam = gameObject.GetComponent<_DamageElement>();
             if (dam == null) return;
@@ -22,8 +22,13 @@ public class Objetivo : _StructureElement
             if (resistence <= 0)
             {
                 GameManager.GetManager().RemoverObjetivo();
-                Destroy(this.gameObject);
+                DestroyObject();
             }
+        }
+        if (gameObject.tag == "Bala")
+        {
+            GameManager.GetManager().RemoverObjetivo();
+            DestroyObject();
         }
     }
 }

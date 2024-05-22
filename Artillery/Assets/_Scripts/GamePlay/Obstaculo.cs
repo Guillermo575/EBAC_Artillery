@@ -20,7 +20,7 @@ public class Obstaculo : _StructureElement
             ReceiveDamage(dam);
             if (resistence <= 0)
             {
-                Destroy(this.gameObject);
+                DestroyObject();
             }
         }
     }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6699686039705163928}
   - component: {fileID: 8967929733511924030}
   - component: {fileID: -3208548400324596546}
+  - component: {fileID: -2257683796259339387}
   m_Layer: 0
   m_Name: Cubo_2x6x4
   m_TagString: Obstaculo
@@ -150,3 +151,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resistence: 10
   objTexturaRuptura: {fileID: 11400000, guid: 867dd7638ae4d2947afef6e1b627067f, type: 2}
+  DamageOnMagnitude: 1
+  MagnitudeForDamage: 3
+  particleDeath: {fileID: 8172613451426177280, guid: 533cc4b12e7127c4d8cf89685588b0ea, type: 3}
+--- !u!114 &-2257683796259339387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268756141543642546}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1be38bcc8780442b9e417bb40aefaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5

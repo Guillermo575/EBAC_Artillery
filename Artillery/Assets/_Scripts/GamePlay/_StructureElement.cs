@@ -10,6 +10,9 @@ public class _StructureElement : MonoBehaviour
     #region Public
     public int resistence = 2;
     public BloqueTexturaRuptura objTexturaRuptura;
+    public bool DamageOnMagnitude;
+    public int MagnitudeForDamage = 10;
+    public ParticleSystemRenderer particleDeath;
     #endregion
 
     #region Private
@@ -28,6 +31,15 @@ public class _StructureElement : MonoBehaviour
         m_Renderer = this.gameObject.GetComponent<Renderer>();
         resistenceMax = resistence;
     }
+    void Update()
+    {
+        if (DamageOnMagnitude)
+        {
+            var objDamage = this.gameObject.GetComponent<_DamageElement>();
+            if (objDamage == null) return;
+            objDamage.enabled = GetMagnitude() >= MagnitudeForDamage;
+        }
+    }
     public void ReceiveDamage(_DamageElement damage)
     {
         var Damagedbefore = (from x in damageLog where x == damage.gameObject.GetInstanceID().ToString() select x).Count();
@@ -36,6 +48,15 @@ public class _StructureElement : MonoBehaviour
         resistence = resistence < 0 ? 0 : resistence;
         damageLog.Add(damage.gameObject.GetInstanceID().ToString());
         ChangeTexture();
+    }
+    public void DestroyObject()
+    {
+        var obj = this.gameObject;
+        var particleSpawned = Instantiate(particleDeath.gameObject) as GameObject;
+        particleSpawned.transform.position = obj.transform.position;
+        particleSpawned.GetComponent<ParticleSystemRenderer>().material = m_Renderer.material;
+        Destroy(particleSpawned, particleSpawned.GetComponent<ParticleSystem>().main.duration);
+        Destroy(this.gameObject);
     }
     public void ChangeTexture()
     {
@@ -49,11 +70,15 @@ public class _StructureElement : MonoBehaviour
     }
     public bool IsSleep()
     {
+        var objVelocityAvg = GetMagnitude();
+        bool sleeping = objVelocityAvg < 1;
+        return sleeping;
+    }
+    public float GetMagnitude()
+    {
         var objrigid = this.gameObject.GetComponent<Rigidbody>();
         var objVel = objrigid.velocity;
-        bool sleeping = objrigid.IsSleeping();
         var objVelocityAvg = objVel.magnitude;
-        sleeping = objVelocityAvg < 1;
-        return sleeping;
+        return objVelocityAvg;
     }
 }
