@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 7223741602031062586}
   - component: {fileID: 6699686039705163928}
   - component: {fileID: 8967929733511924030}
-  - component: {fileID: -7846990253352922052}
-  - component: {fileID: 1840991838860371062}
+  - component: {fileID: 3695290128098939778}
+  - component: {fileID: 6663430740433055125}
   m_Layer: 0
-  m_Name: Cubo_1x8x4
+  m_Name: Wood_4x4x4
   m_TagString: Obstaculo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 8, z: 4}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -137,7 +137,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
---- !u!114 &-7846990253352922052
+--- !u!114 &3695290128098939778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +154,7 @@ MonoBehaviour:
   DamageOnMagnitude: 1
   MagnitudeForDamage: 3
   particleDeath: {fileID: 8172613451426177280, guid: 533cc4b12e7127c4d8cf89685588b0ea, type: 3}
---- !u!114 &1840991838860371062
+--- !u!114 &6663430740433055125
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
