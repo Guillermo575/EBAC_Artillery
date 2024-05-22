@@ -355,7 +355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7279256209005061431
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2393,14 +2393,13 @@ GameObject:
   - component: {fileID: 5400581996842987093}
   - component: {fileID: 2250383567387821538}
   - component: {fileID: 3021691654484588386}
-  - component: {fileID: 2206183008186876389}
   m_Layer: 5
   m_Name: CanvasInputManagerGamePad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7823787537242932574
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2484,23 +2483,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2206183008186876389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8450022992951270230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daeafa52a0bc81a4eaa7787ddb9d2824, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txtAnglePositive: {fileID: 0}
-  txtAngleNegative: {fileID: 0}
-  txtStrengthPositive: {fileID: 0}
-  txtStrengthNegative: {fileID: 0}
-  txtShoot: {fileID: 0}
 --- !u!1 &8513332577239221527
 GameObject:
   m_ObjectHideFlags: 0
