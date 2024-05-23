@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 7223741602031062586}
   - component: {fileID: 6699686039705163928}
   - component: {fileID: 8967929733511924030}
-  - component: {fileID: 2878952862220828224}
-  - component: {fileID: 6805294621489632260}
+  - component: {fileID: 3695290128098939778}
+  - component: {fileID: 6663430740433055125}
   m_Layer: 0
-  m_Name: Rock_10x1x4
+  m_Name: Explosive_4x4x4
   m_TagString: Obstaculo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 4}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d0731239a2b1e64a92987642e10edb3, type: 2}
+  - {fileID: 2100000, guid: 1d02adba932f9024191fc01b28a96ee2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,7 +137,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &2878952862220828224
+--- !u!114 &3695290128098939778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,12 +153,11 @@ MonoBehaviour:
   objTexturaRuptura: {fileID: 11400000, guid: 867dd7638ae4d2947afef6e1b627067f, type: 2}
   DamageOnMagnitude: 1
   MagnitudeForDamage: 3
-  particleDeath: {fileID: 8172613451426177280, guid: 533cc4b12e7127c4d8cf89685588b0ea, type: 3}
-  DamageTag:
-  - Explosion
+  particleDeath: {fileID: 8357694701850343936, guid: 75189214c66ba094b846a03dca03b477, type: 3}
+  DamageTag: []
+  DestroyTag:
   - Bala
-  DestroyTag: []
---- !u!114 &6805294621489632260
+--- !u!114 &6663430740433055125
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

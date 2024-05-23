@@ -4,31 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 public class Objetivo : _StructureElement
 {
-    private void OnTriggerEnter(Collider other)
+    protected override void Start()
     {
-        CheckCollision(other.gameObject);
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        CheckCollision(collision.gameObject);
-    }
-    private void CheckCollision(GameObject gameObject)
-    {
-        if (gameObject.tag == "Explosion" || gameObject.tag == "Obstaculo")
-        {
-            _DamageElement dam = gameObject.GetComponent<_DamageElement>();
-            if (dam == null) return;
-            ReceiveDamage(dam);
-            if (resistence <= 0)
-            {
-                GameManager.GetManager().RemoverObjetivo();
-                DestroyObject();
-            }
-        }
-        if (gameObject.tag == "Bala")
-        {
-            GameManager.GetManager().RemoverObjetivo();
-            DestroyObject();
-        }
+        base.Start();
+        OnDestroyObject += delegate { GameManager.GetManager().RemoverObjetivo(); };
     }
 }

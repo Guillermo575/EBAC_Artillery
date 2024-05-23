@@ -154,6 +154,10 @@ MonoBehaviour:
   DamageOnMagnitude: 1
   MagnitudeForDamage: 3
   particleDeath: {fileID: 8172613451426177280, guid: 533cc4b12e7127c4d8cf89685588b0ea, type: 3}
+  DamageTag:
+  - Explosion
+  - Bala
+  DestroyTag: []
 --- !u!114 &-2257683796259339387
 MonoBehaviour:
   m_ObjectHideFlags: 0

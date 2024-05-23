@@ -3,28 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Linq;
+using System;
 public class _StructureElement : MonoBehaviour
 {
-    #region Variables
-
-    #region Public
+    #region Public Variables
     public int resistence = 2;
     public BloqueTexturaRuptura objTexturaRuptura;
     public bool DamageOnMagnitude;
     public int MagnitudeForDamage = 10;
     public ParticleSystemRenderer particleDeath;
+    public List<string> DamageTag;
+    public List<string> DestroyTag;
     #endregion
 
-    #region Private
+    #region Private Variables
+    internal event EventHandler OnDestroyObject;
     internal int resistenceMax = 2;
     List<string> damageLog = new List<string>();
     protected GameManager gameManager;
     Renderer m_Renderer;
     #endregion
 
-    #endregion
-
-    void Start()
+    #region Start & Update
+    protected virtual void Start()
     {
         gameManager = GameManager.GetManager();
         gameManager.OnRoundStart += delegate { damageLog = new List<string>(); };
@@ -40,6 +41,36 @@ public class _StructureElement : MonoBehaviour
             objDamage.enabled = GetMagnitude() >= MagnitudeForDamage;
         }
     }
+    #endregion
+
+    #region Collisions
+    private void OnTriggerEnter(Collider other)
+    {
+        CheckCollision(other.gameObject);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        CheckCollision(collision.gameObject);
+    }
+    private void CheckCollision(GameObject gameObject)
+    {
+        var lstDamageTag = (from x in DamageTag where x == gameObject.tag select x).Count();
+        if (lstDamageTag > 0)
+        {
+            _DamageElement dam = gameObject.GetComponent<_DamageElement>();
+            if (dam == null) return;
+            ReceiveDamage(dam);
+            if (resistence <= 0)
+            {
+                DestroyObject();
+            }
+        }
+        var lstDestroyTag = (from x in DestroyTag where x == gameObject.tag select x).Count();
+        if (lstDestroyTag > 0)
+        {
+            DestroyObject();
+        }
+    }
     public void ReceiveDamage(_DamageElement damage)
     {
         var Damagedbefore = (from x in damageLog where x == damage.gameObject.GetInstanceID().ToString() select x).Count();
@@ -51,6 +82,7 @@ public class _StructureElement : MonoBehaviour
     }
     public void DestroyObject()
     {
+        OnDestroyObject?.Invoke(this, EventArgs.Empty);
         var obj = this.gameObject;
         var particleSpawned = Instantiate(particleDeath.gameObject) as GameObject;
         particleSpawned.transform.position = obj.transform.position;
@@ -68,6 +100,9 @@ public class _StructureElement : MonoBehaviour
         var materialObj = m_Renderer.material;
         materialObj.SetTexture("_BaseMap", texturaObj);
     }
+    #endregion
+
+    #region get
     public bool IsSleep()
     {
         var objVelocityAvg = GetMagnitude();
@@ -81,4 +116,5 @@ public class _StructureElement : MonoBehaviour
         var objVelocityAvg = objVel.magnitude;
         return objVelocityAvg;
     }
+    #endregion
 }
