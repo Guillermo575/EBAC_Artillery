@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6604466027263460208}
   - component: {fileID: -1248722999811729854}
   m_Layer: 0
-  m_Name: CanonBala_SG
+  m_Name: CanonBala_Light
   m_TagString: Bala
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,6 +150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   Nombre: Light
-  FuerzaMinimo: 10
-  FuerzaMaximo: 40
+  FuerzaMinimo: 30
+  FuerzaMaximo: 60
   particulaExplosion: {fileID: 3218365948646052445, guid: 75189214c66ba094b846a03dca03b477, type: 3}

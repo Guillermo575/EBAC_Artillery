@@ -527,6 +527,7 @@ MonoBehaviour:
   lstBalas:
   - {fileID: -1248722999811729854, guid: 6effd337b82b4164c9344fd98a45ddc7, type: 3}
   - {fileID: -1248722999811729854, guid: 715961ed6f75bb643a1bf54143003f92, type: 3}
+  - {fileID: -1248722999811729854, guid: 41b7a0411e646bc408dddb0d81f6d1cd, type: 3}
   lineaRastro: {fileID: 4982182197014804989}
   particulaDisparo: {fileID: 4274657246117199005, guid: 83bda3ddc55c47b4bb209a881cd49e3b, type: 3}
   clipDisparo: {fileID: 8300000, guid: 81aafcac789e44044afe3b04b6ab4d3a, type: 3}

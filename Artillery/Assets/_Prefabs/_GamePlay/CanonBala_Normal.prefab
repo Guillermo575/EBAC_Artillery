@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6604466027263460208}
   - component: {fileID: -1248722999811729854}
   m_Layer: 0
-  m_Name: CanonBala
+  m_Name: CanonBala_Normal
   m_TagString: Bala
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

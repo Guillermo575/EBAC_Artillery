@@ -10,6 +10,8 @@ public class SeguirCamara : MonoBehaviour
     public Vector2 limiteXY = Vector2.zero;
     [Header("Configuracion Dinamica")]
     public float camZ;
+    private Vector3 InitialPosition;
+    private float InitialSize;
     private GameManager gameManager;
     #endregion
 
@@ -20,6 +22,8 @@ public class SeguirCamara : MonoBehaviour
         gameManager.OnRoundStart += delegate {
             objetivo = null;
         };
+        InitialPosition = this.transform.position;
+        InitialSize = Camera.main.orthographicSize;
     }
     private void Awake()
     {
@@ -31,6 +35,8 @@ public class SeguirCamara : MonoBehaviour
         if (objetivo == null)
         {
             destino = Vector3.zero;
+            destino.x = InitialPosition.x;
+            destino.y = InitialPosition.y;
         }
         else
         {
@@ -41,7 +47,14 @@ public class SeguirCamara : MonoBehaviour
         destino = Vector3.Lerp(transform.position, destino, suavizado);
         destino.z = camZ;
         transform.position = destino;
-        Camera.main.orthographicSize = destino.y + 20;
+        if (objetivo != null)
+        {
+            Camera.main.orthographicSize = destino.y + InitialSize;
+        }
+        else
+        {
+            Camera.main.orthographicSize = InitialSize;
+        }
     }
     #endregion
 }

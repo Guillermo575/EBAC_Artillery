@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Material_Bala_SG
+  m_Name: Material_Bala_Light
   m_Shader: {fileID: -6465566751694194690, guid: 3e45db9ce705b284fb67ba4a56e95600, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0

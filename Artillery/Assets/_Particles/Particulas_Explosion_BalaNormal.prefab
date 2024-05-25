@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4233866349523102299}
   - component: {fileID: 2289270462738046156}
   m_Layer: 0
-  m_Name: Particulas_Explosion2
+  m_Name: Particulas_Explosion_BalaNormal
   m_TagString: Explosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
