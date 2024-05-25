@@ -119,6 +119,10 @@ public class Canon : MonoBehaviour
         IndexBala++;
         IndexBala = IndexBala >= lstBalas.Count() ? 0 : IndexBala;
         BalaPrefab = lstBalas[IndexBala];
+        gameManager.VelocidadBala = (BalaPrefab.FuerzaMaximo + BalaPrefab.FuerzaMinimo) / 2;
+        Vector3 direccionDisparo = transform.rotation.eulerAngles;
+        direccionDisparo.y = 90 - direccionDisparo.x;
+        UpdateTrajectory(puntaCanon.transform.position, (direccionDisparo.normalized * gameManager.VelocidadBala), Physics.gravity);
     }
     void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
     {
