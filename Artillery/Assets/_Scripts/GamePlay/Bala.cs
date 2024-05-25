@@ -4,6 +4,9 @@ using UnityEngine;
 public class Bala : _DamageElement
 {
     #region Variables
+    public string Nombre;
+    public int FuerzaMinimo = 10;
+    public int FuerzaMaximo = 40;
     public GameObject particulaExplosion;
     private bool Colision;
     #endregion

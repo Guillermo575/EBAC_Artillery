@@ -10,6 +10,7 @@ public class InputWindowKeyBoard : MonoBehaviour
     public TMP_Text txtStrengthPositive;
     public TMP_Text txtStrengthNegative;
     public TMP_Text txtShoot;
+    public TMP_Text txtChangeBullet;
     void Start()
     {
         inputManager = InputManager.GetManager();
@@ -21,5 +22,7 @@ public class InputWindowKeyBoard : MonoBehaviour
         txtStrengthNegative.text = objModificarFuerza[1].KeyString.ToUpper();
         var objShoot = inputManager.GetActionKeys("Canon", "Disparar", "<Keyboard>");
         txtShoot.text = objShoot[0].KeyString.ToUpper();
+        var objChangeBullet = inputManager.GetActionKeys("Canon", "Cambiar_Bala", "<Keyboard>");
+        txtChangeBullet.text = objChangeBullet[0].KeyString.ToUpper();
     }
 }

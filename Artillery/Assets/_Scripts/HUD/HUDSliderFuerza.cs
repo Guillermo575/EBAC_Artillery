@@ -5,19 +5,22 @@ using UnityEngine.UI;
 public class HUDSliderFuerza : MonoBehaviour
 {
     #region Variables
+    private Canon jugador;
     private Slider slider;
     private GameManager gameManager;
     #endregion
 
+    #region Start & Update
     void Start()
     {
+        jugador = GameObject.FindObjectsByType<Canon>(FindObjectsSortMode.InstanceID)[0];
         slider = this.GetComponent<Slider>();
         gameManager = GameManager.GetManager();
     }
     void Update()
     {
-        slider.minValue = 10;
-        slider.maxValue = 40;
+        slider.minValue = jugador.GetBalaPrefab().FuerzaMinimo;
+        slider.maxValue = jugador.GetBalaPrefab().FuerzaMaximo;
         slider.value = (int)gameManager.VelocidadBala;
         if (gameManager.IsBlock)
         {
@@ -32,4 +35,5 @@ public class HUDSliderFuerza : MonoBehaviour
             slider.gameObject.transform.localScale = scale;
         }
     }
+    #endregion
 }

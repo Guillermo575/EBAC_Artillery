@@ -96,6 +96,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -231,6 +233,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -315,6 +319,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -420,6 +426,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -515,10 +523,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6309759c19d78241ac9a30a5b65725c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BalaPrefab: {fileID: 456343279591412553, guid: 6effd337b82b4164c9344fd98a45ddc7, type: 3}
+  BalaPrefab: {fileID: -1248722999811729854, guid: 6effd337b82b4164c9344fd98a45ddc7, type: 3}
+  lstBalas:
+  - {fileID: -1248722999811729854, guid: 6effd337b82b4164c9344fd98a45ddc7, type: 3}
+  - {fileID: -1248722999811729854, guid: 715961ed6f75bb643a1bf54143003f92, type: 3}
   lineaRastro: {fileID: 4982182197014804989}
   particulaDisparo: {fileID: 4274657246117199005, guid: 83bda3ddc55c47b4bb209a881cd49e3b, type: 3}
   clipDisparo: {fileID: 8300000, guid: 81aafcac789e44044afe3b04b6ab4d3a, type: 3}
+  rotacion: 0
 --- !u!1 &7072370870041047910
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +590,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -685,6 +699,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

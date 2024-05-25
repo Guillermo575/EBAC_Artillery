@@ -8,16 +8,22 @@ using static GameManager;
 public class Canon : MonoBehaviour
 {
     #region Variables
-    [SerializeField] private GameObject BalaPrefab;
+    [SerializeField] private Bala BalaPrefab;
+    public List<Bala> lstBalas;
     public LineRenderer lineaRastro;
     public GameObject particulaDisparo;
+    AudioManager audioManager;
     public AudioClip clipDisparo;
+    #endregion
+
+    #region privado
+    [SerializeField] private float rotacion;
     private GameObject SonidoDisparo;
     private AudioSource SourceDisparo;
-
     private GameObject puntaCanon;
-    [SerializeField] private float rotacion;
     private GameManager gameManager;
+    public Bala GetBalaPrefab(){ return BalaPrefab; }
+    private int IndexBala = 0;
     #endregion
 
     #region Controles
@@ -25,6 +31,7 @@ public class Canon : MonoBehaviour
     private InputAction apuntar;
     private InputAction modificarFuerza;
     private InputAction disparar;
+    private InputAction cambiarBala;
     #endregion
 
     #region Start & Update
@@ -37,18 +44,22 @@ public class Canon : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.GetManager();
+        audioManager = AudioManager.GetManager();
         puntaCanon = transform.Find("PuntaCanon").gameObject;
         SonidoDisparo = GameObject.Find("Sonido_Disparo");
-        SourceDisparo = SonidoDisparo.GetComponent<AudioSource>();
+        SourceDisparo = audioManager.SFX;
         lineaRastro.positionCount = 0;
         inputManager = InputManager.GetManager();
         apuntar = inputManager.GetAction("Apuntar");
         modificarFuerza = inputManager.GetAction("Modificar_Fuerza");
         disparar = inputManager.GetAction("Disparar");
+        cambiarBala = inputManager.GetAction("Cambiar_Bala");
         apuntar.Enable();
         modificarFuerza.Enable();
         disparar.Enable();
+        cambiarBala.Enable();
         disparar.performed += ShotBullet;
+        cambiarBala.performed += ChangeBullet;
     }
     void Update()
     {
@@ -62,13 +73,16 @@ public class Canon : MonoBehaviour
                 break;
         }
     }
+    #endregion
+
+    #region Controles
     public void ChangeAngle()
     {
         if (gameManager.IsGameConstrolsDisabled) return;
         var ValorFuerza = modificarFuerza.ReadValue<float>();
         gameManager.VelocidadBala += ValorFuerza * 0.1f;
-        if (gameManager.VelocidadBala > 40) gameManager.VelocidadBala = 40;
-        if (gameManager.VelocidadBala < 10) gameManager.VelocidadBala = 10;
+        if (gameManager.VelocidadBala > BalaPrefab.FuerzaMaximo) gameManager.VelocidadBala = BalaPrefab.FuerzaMaximo;
+        if (gameManager.VelocidadBala < BalaPrefab.FuerzaMinimo) gameManager.VelocidadBala = BalaPrefab.FuerzaMinimo;
         var ValorApuntar = apuntar.ReadValue<float>();
         rotacion += ValorApuntar * gameManager.VelocidadRotacion;
         if (rotacion <= 90 && rotacion >= 0)
@@ -87,7 +101,7 @@ public class Canon : MonoBehaviour
     public void ShotBullet(InputAction.CallbackContext context)
     {
         if (gameManager.IsGameConstrolsDisabled || gameManager.DisparosPorJuego == 0) return;
-        GameObject temp = Instantiate(BalaPrefab, puntaCanon.transform.position, transform.rotation);
+        GameObject temp = Instantiate(BalaPrefab.gameObject, puntaCanon.transform.position, transform.rotation);
         Rigidbody tempRB = temp.GetComponent<Rigidbody>();
         SeguirCamara.objetivo = temp;
         Vector3 direccionDisparo = transform.rotation.eulerAngles;
@@ -95,10 +109,16 @@ public class Canon : MonoBehaviour
         Vector3 direccionParticulas = new Vector3(-90 + direccionDisparo.x, 90, 0);
         GameObject particulas = Instantiate(particulaDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas), transform);
         tempRB.velocity = direccionDisparo.normalized * gameManager.VelocidadBala;
-        gameManager.DisparosPorJuego--;
-        //SourceDisparo.PlayOneShot(clipDisparo);
+        if (!gameManager.BalasInfinitas) gameManager.DisparosPorJuego--;
+        SourceDisparo.clip = clipDisparo;
         SourceDisparo.Play();
         gameManager.ActionRound();
+    }
+    public void ChangeBullet(InputAction.CallbackContext context)
+    {
+        IndexBala++;
+        IndexBala = IndexBala >= lstBalas.Count() ? 0 : IndexBala;
+        BalaPrefab = lstBalas[IndexBala];
     }
     void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
     {

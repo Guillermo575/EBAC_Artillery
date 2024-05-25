@@ -149,4 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 8
+  Nombre: Normal
+  FuerzaMinimo: 10
+  FuerzaMaximo: 40
   particulaExplosion: {fileID: 3218365948646052445, guid: a74b70ce6980ad74ca3c5976f028e3f4, type: 3}
