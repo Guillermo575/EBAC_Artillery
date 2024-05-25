@@ -38,7 +38,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _DisparosPorJuego = 10;
     [SerializeField] private int _DisparosPorJuegoTotal = 10;
     [SerializeField] private float _VelocidadRotacion = 1;
+    public bool BalasInfinitas;
 
+    #endregion
+
+    #region Privados
     private float _NivelSuelo = -1000;
     private int _ObjetivosTotales;
     public int ObjetivosTotales { get { return _ObjetivosTotales; } }
@@ -55,6 +59,7 @@ public class GameManager : MonoBehaviour
         Action = 2,
         Resolution = 3,
     }
+    private AudioManager audioManager;
     #endregion
 
     #region Level Game Variables
@@ -149,6 +154,10 @@ public class GameManager : MonoBehaviour
         NivelSuelo = objSuelo.gameObject.transform.position.y;
         DisparosPorJuego = DisparosPorJuegoTotal;
         _ObjetivosTotales = GameObject.FindGameObjectsWithTag("Objetivo").ToList().Count;
+        audioManager = AudioManager.GetManager();
+        OnGamePause += delegate { audioManager.BGM.Pause(); audioManager.SFX.Pause(); };
+        OnGameResume += delegate { audioManager.BGM.UnPause(); audioManager.SFX.UnPause(); };
+        OnGameEnd += delegate { audioManager.BGM.Stop(); audioManager.SFX.Stop(); };
         StartGame();
     }
     private void Update()

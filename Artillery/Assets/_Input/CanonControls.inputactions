@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Cambiar_Bala",
+                    "type": "Button",
+                    "id": "2ae69cd7-16b8-44b0-ab02-084a831a3550",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -156,6 +165,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "ede00a19-88ac-45bf-a17e-5ebae17d6d50",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Disparar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "Teclado_WASD",
                     "id": "67c462c2-9a73-4666-8b4e-23cf5b0a9611",
                     "path": "1DAxis",
@@ -253,6 +273,28 @@
                     "action": "Modificar_Fuerza",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "ca38654f-2f96-41e9-9f3c-1bab8deab765",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cambiar_Bala",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "80bc08c9-7571-4b30-a28b-7d7fc8b16adf",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cambiar_Bala",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

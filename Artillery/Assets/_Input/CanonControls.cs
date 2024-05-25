@@ -53,6 +53,15 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cambiar_Bala"",
+                    ""type"": ""Button"",
+                    ""id"": ""2ae69cd7-16b8-44b0-ab02-084a831a3550"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -178,6 +187,17 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""ede00a19-88ac-45bf-a17e-5ebae17d6d50"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Disparar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""Teclado_WASD"",
                     ""id"": ""67c462c2-9a73-4666-8b4e-23cf5b0a9611"",
                     ""path"": ""1DAxis"",
@@ -275,6 +295,28 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
                     ""action"": ""Modificar_Fuerza"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca38654f-2f96-41e9-9f3c-1bab8deab765"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cambiar_Bala"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""80bc08c9-7571-4b30-a28b-7d7fc8b16adf"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cambiar_Bala"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -400,6 +442,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
         m_Canon_Apuntar = m_Canon.FindAction("Apuntar", throwIfNotFound: true);
         m_Canon_Disparar = m_Canon.FindAction("Disparar", throwIfNotFound: true);
         m_Canon_Modificar_Fuerza = m_Canon.FindAction("Modificar_Fuerza", throwIfNotFound: true);
+        m_Canon_Cambiar_Bala = m_Canon.FindAction("Cambiar_Bala", throwIfNotFound: true);
         // HUD_Time
         m_HUD_Time = asset.FindActionMap("HUD_Time", throwIfNotFound: true);
         m_HUD_Time_Time_Slow = m_HUD_Time.FindAction("Time_Slow", throwIfNotFound: true);
@@ -468,6 +511,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Canon_Apuntar;
     private readonly InputAction m_Canon_Disparar;
     private readonly InputAction m_Canon_Modificar_Fuerza;
+    private readonly InputAction m_Canon_Cambiar_Bala;
     public struct CanonActions
     {
         private @CanonControls m_Wrapper;
@@ -475,6 +519,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
         public InputAction @Apuntar => m_Wrapper.m_Canon_Apuntar;
         public InputAction @Disparar => m_Wrapper.m_Canon_Disparar;
         public InputAction @Modificar_Fuerza => m_Wrapper.m_Canon_Modificar_Fuerza;
+        public InputAction @Cambiar_Bala => m_Wrapper.m_Canon_Cambiar_Bala;
         public InputActionMap Get() { return m_Wrapper.m_Canon; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -493,6 +538,9 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
             @Modificar_Fuerza.started += instance.OnModificar_Fuerza;
             @Modificar_Fuerza.performed += instance.OnModificar_Fuerza;
             @Modificar_Fuerza.canceled += instance.OnModificar_Fuerza;
+            @Cambiar_Bala.started += instance.OnCambiar_Bala;
+            @Cambiar_Bala.performed += instance.OnCambiar_Bala;
+            @Cambiar_Bala.canceled += instance.OnCambiar_Bala;
         }
 
         private void UnregisterCallbacks(ICanonActions instance)
@@ -506,6 +554,9 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
             @Modificar_Fuerza.started -= instance.OnModificar_Fuerza;
             @Modificar_Fuerza.performed -= instance.OnModificar_Fuerza;
             @Modificar_Fuerza.canceled -= instance.OnModificar_Fuerza;
+            @Cambiar_Bala.started -= instance.OnCambiar_Bala;
+            @Cambiar_Bala.performed -= instance.OnCambiar_Bala;
+            @Cambiar_Bala.canceled -= instance.OnCambiar_Bala;
         }
 
         public void RemoveCallbacks(ICanonActions instance)
@@ -591,6 +642,7 @@ public partial class @CanonControls: IInputActionCollection2, IDisposable
         void OnApuntar(InputAction.CallbackContext context);
         void OnDisparar(InputAction.CallbackContext context);
         void OnModificar_Fuerza(InputAction.CallbackContext context);
+        void OnCambiar_Bala(InputAction.CallbackContext context);
     }
     public interface IHUD_TimeActions
     {
