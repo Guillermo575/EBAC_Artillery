@@ -7,6 +7,7 @@ public class Bala : _DamageElement
     public string Nombre;
     public int FuerzaMinimo = 10;
     public int FuerzaMaximo = 40;
+    public int TimeForExplosion = 3;
     public GameObject particulaExplosion;
     private bool Colision;
     #endregion
@@ -39,7 +40,14 @@ public class Bala : _DamageElement
         if (gameObject.tag == "Suelo" && !Colision)
         {
             Colision = true;
-            Invoke("Explotar", 3);
+            if (TimeForExplosion <= 0)
+            {
+                Explotar();
+            }
+            else
+            {
+                Invoke("Explotar", TimeForExplosion);
+            }
         }
         if (gameObject.tag == "Obstaculo" || gameObject.tag == "Objetivo")
         {

@@ -15,6 +15,6 @@ public class HUDLabelTime : MonoBehaviour
     }
     public void SetTextTime()
     {
-        txtLabel.text = Time.timeScale.ToString("#.##");
+        txtLabel.text = "x " + Time.timeScale.ToString("#.##");
     }
 }

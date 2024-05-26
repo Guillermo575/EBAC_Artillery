@@ -157,6 +157,7 @@ MonoBehaviour:
   DamageTag: []
   DestroyTag:
   - Bala
+  - Obstaculo
 --- !u!114 &6663430740433055125
 MonoBehaviour:
   m_ObjectHideFlags: 0

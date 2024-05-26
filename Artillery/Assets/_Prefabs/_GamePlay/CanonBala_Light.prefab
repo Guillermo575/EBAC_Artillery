@@ -152,4 +152,5 @@ MonoBehaviour:
   Nombre: Light
   FuerzaMinimo: 30
   FuerzaMaximo: 60
-  particulaExplosion: {fileID: 3218365948646052445, guid: 75189214c66ba094b846a03dca03b477, type: 3}
+  TimeForExplosion: 0
+  particulaExplosion: {fileID: 3218365948646052445, guid: de0a0c2bf76dda24587a525dd2ae9841, type: 3}
