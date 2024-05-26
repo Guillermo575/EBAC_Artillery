@@ -152,7 +152,7 @@ MonoBehaviour:
   resistence: 30
   objTexturaRuptura: {fileID: 11400000, guid: 867dd7638ae4d2947afef6e1b627067f, type: 2}
   DamageOnMagnitude: 1
-  MagnitudeForDamage: 10
+  MagnitudeForDamage: 3
   particleDeath: {fileID: 8172613451426177280, guid: 533cc4b12e7127c4d8cf89685588b0ea, type: 3}
   DamageTag:
   - Explosion

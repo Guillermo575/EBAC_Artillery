@@ -24,6 +24,7 @@ public class HUDSlowFast : MonoBehaviour
         TimeSlow.performed += SlowGameKey;
         TimeFast = inputManager.GetAction("Time_Fast");
         TimeFast.performed += FastGameKey;
+        gameManager.OnRoundAction += delegate { Time.timeScale = 1; };
         gameManager.OnRoundResolute += delegate { Time.timeScale = 1; };
     }
     void Update()

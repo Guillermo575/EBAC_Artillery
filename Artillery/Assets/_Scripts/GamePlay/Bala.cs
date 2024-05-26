@@ -52,7 +52,7 @@ public class Bala : _DamageElement
         if (gameObject.tag == "Obstaculo" || gameObject.tag == "Objetivo")
         {
             Colision = true;
-            Explotar();
+            Invoke("Explotar", 0.001f);
         }
     }
     #endregion

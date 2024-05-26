@@ -54,11 +54,11 @@ public class _StructureElement : MonoBehaviour
     }
     private void CheckCollision(GameObject gameObject)
     {
+        _DamageElement dam = gameObject.GetComponent<_DamageElement>();
+        if (dam == null || !dam.enabled) return;
         var lstDamageTag = (from x in DamageTag where x == gameObject.tag select x).Count();
         if (lstDamageTag > 0)
         {
-            _DamageElement dam = gameObject.GetComponent<_DamageElement>();
-            if (dam == null) return;
             ReceiveDamage(dam);
             if (resistence <= 0)
             {

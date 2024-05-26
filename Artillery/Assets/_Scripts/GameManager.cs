@@ -35,8 +35,8 @@ public class GameManager : MonoBehaviour
     public float NivelSuelo { get => _NivelSuelo; set => _NivelSuelo = value; }
 
     [SerializeField] private float _VelocidadBala = 30;
-    [SerializeField] private int _DisparosPorJuego = 10;
-    [HideInInspector][SerializeField] private int _DisparosPorJuegoTotal = 10;
+    [HideInInspector][SerializeField] private int _DisparosPorJuego = 10;
+    [SerializeField] private int _DisparosPorJuegoTotal = 10;
     [SerializeField] private float _VelocidadRotacion = 1;
     public bool BalasInfinitas;
 

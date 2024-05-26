@@ -48,7 +48,8 @@ MonoBehaviour:
   _VelocidadBala: 30
   _DisparosPorJuego: 3
   _DisparosPorJuegoTotal: 3
-  _VelocidadRotacion: 1
+  _VelocidadRotacion: 0.1
+  BalasInfinitas: 0
 --- !u!114 &1109080886932476971
 MonoBehaviour:
   m_ObjectHideFlags: 0

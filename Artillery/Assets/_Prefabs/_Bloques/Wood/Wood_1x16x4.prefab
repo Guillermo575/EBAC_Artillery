@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &456343279591412553
+--- !u!1 &268756141543642546
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2559936023280291053}
-  - component: {fileID: 3435769689931773043}
-  - component: {fileID: 5493551271678333128}
-  - component: {fileID: 6541885877191236045}
-  - component: {fileID: 6604466027263460208}
-  - component: {fileID: -1248722999811729854}
+  - component: {fileID: 7384952631685749871}
+  - component: {fileID: 4853383311860148212}
+  - component: {fileID: 7223741602031062586}
+  - component: {fileID: 6699686039705163928}
+  - component: {fileID: 8967929733511924030}
+  - component: {fileID: -7846990253352922052}
+  - component: {fileID: 1840991838860371062}
   m_Layer: 0
-  m_Name: CanonBala_Heavy
-  m_TagString: Bala
+  m_Name: Wood_1x16x4
+  m_TagString: Obstaculo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2559936023280291053
+--- !u!4 &7384952631685749871
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456343279591412553}
+  m_GameObject: {fileID: 268756141543642546}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 16, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3435769689931773043
+--- !u!33 &4853383311860148212
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456343279591412553}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5493551271678333128
+  m_GameObject: {fileID: 268756141543642546}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &7223741602031062586
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456343279591412553}
+  m_GameObject: {fileID: 268756141543642546}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -66,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ffc2622cac2c2274aa8d075ad4b40e46, type: 2}
+  - {fileID: 2100000, guid: 95214cff36811e14da0d420e39ff12eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,14 +89,14 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6541885877191236045
-SphereCollider:
+--- !u!65 &6699686039705163928
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456343279591412553}
-  m_Material: {fileID: 13400000, guid: f3ee515e8e3df2c41bb529ece62b8daf, type: 2}
+  m_GameObject: {fileID: 268756141543642546}
+  m_Material: {fileID: 13400000, guid: 6b4dd7778741c1c4690f14549acc3b8a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -107,19 +108,19 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &6604466027263460208
+--- !u!54 &8967929733511924030
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456343279591412553}
+  m_GameObject: {fileID: 268756141543642546}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 5
+  m_Drag: 1
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -134,23 +135,39 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
-  m_CollisionDetection: 1
---- !u!114 &-1248722999811729854
+  m_Constraints: 56
+  m_CollisionDetection: 0
+--- !u!114 &-7846990253352922052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456343279591412553}
+  m_GameObject: {fileID: 268756141543642546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8207378125860e4794341b3225483c2, type: 3}
+  m_Script: {fileID: 11500000, guid: cb014f62ec111744c9fb7069986a1d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
-  Nombre: Heavy
-  FuerzaMinimo: 15
-  FuerzaMaximo: 25
-  TimeForExplosion: 5
-  particulaExplosion: {fileID: 3218365948646052445, guid: 958c018d2a150ab4eb6b738a742dca27, type: 3}
+  resistence: 10
+  objTexturaRuptura: {fileID: 11400000, guid: 867dd7638ae4d2947afef6e1b627067f, type: 2}
+  DamageOnMagnitude: 1
+  MagnitudeForDamage: 5
+  particleDeath: {fileID: 8172613451426177280, guid: 533cc4b12e7127c4d8cf89685588b0ea, type: 3}
+  DamageTag:
+  - Explosion
+  - Bala
+  DestroyTag: []
+--- !u!114 &1840991838860371062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268756141543642546}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1be38bcc8780442b9e417bb40aefaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
