@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d25f7af93531404b804a4840ef20959, type: 3}
   m_Name: SO_Opciones
   m_EditorClassIdentifier: 
-  VolumenSonido: 100
-  VolumenMusica: 100
+  VolumenSonido: 0
+  VolumenMusica: -30
